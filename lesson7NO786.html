@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise- Variable - Datatype - Operator</title>
+</head>
+<body>
+    <h3>Bài 1</h3>
+    <script>
+        let a
+        let b
+        let c
+        a = prompt("Nhập điểm môn Vật lý: ")
+        b = prompt("Nhập điểm môn Hóa học: ")
+        c = prompt("Nhập điểm môn Sinh học: ")
+        let vl = parseInt(a)
+        let hh = parseInt(b)
+        let sh = parseInt(c)
+        let dtb = (vl+hh+sh)/3
+        let dtbl = parseInt(dtb)
+        let tong = (vl+ hh + sh)
+        document.write("Điểm trung bình là:" + dtbl)
+        document.write("Điểm tổng là:" + tong)
+    </script>
+    <h3>Bài 2</h3>
+    <script>
+        let gt = prompt("Nhập giá trị độ C:")
+        let df = (gt*9/5)+32
+        let dfl = parseInt(df)
+        document.write("Giá trị độ F là: " + dfl)
+    </script>
+    <h3>Bài 3</h3>
+    <script>
+        let radius = prompt("Nhập giá trị bán kính vào đây:")
+        let pi = 3.14
+        let rbp = radius*radius
+        let acreage = pi*rbp
+        document.write("Công thức tính diện tích hình tròn là:" + acreage)
+    </script>
+    <h3>Bài 4</h3>
+    <script>
+        let radius1 = prompt("Nhập giá trị bán kính lại vào đây:")
+        let pi1 = 3.14
+        let perimeter = 2*radius1*pi1
+        document.write("Công thức tính chu hình tròn là:" + perimeter)
+    </script>
+</body>
+</html>
