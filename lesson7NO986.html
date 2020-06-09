@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise- Calculator application </title>
+</head>
+<body>
+<form>
+    <h3>Calculator</h3>
+    <input id="hihi" type="number" value="">
+    <input id="hihi1" type="number" value="">
+    <br>
+    <button type="button" onclick="hihi2()" >Addition(+)</button>
+    <button type="button" onclick="hihi3()" >Subtraction(-)</button>
+    <button type="button" onclick="hihi4()" >Multiplication(X)</button>
+    <button type="button" onclick="hihi5()" >Division(\)</button>
+</form>
+<p id="result"></p>
+<script>
+
+    function hihi2()
+    {
+        let a = parseInt(document.getElementById("hihi").value);
+        let b = parseInt(document.getElementById("hihi1").value);
+    document.getElementById("result").innerHTML = "Result is:" + (a + b);
+    }
+    function hihi3()
+    {
+        let a = parseInt(document.getElementById("hihi").value);
+        let b = parseInt(document.getElementById("hihi1").value);
+    document.getElementById("result").innerHTML = "Result is:" + (a - b);
+    }
+    function hihi4()
+    {
+        let a = parseInt(document.getElementById("hihi").value);
+        let b = parseInt(document.getElementById("hihi1").value);
+    document.getElementById("result").innerHTML = "Result is:" + (a * b);
+    }
+    function hihi5()
+    {
+        let a = parseInt(document.getElementById("hihi").value);
+        let b = parseInt(document.getElementById("hihi1").value);
+    document.getElementById("result").innerHTML = "Result is:" + (a / b);
+    }
+</script>
+</body>
+</html>
