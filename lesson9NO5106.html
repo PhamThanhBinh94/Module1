@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>git
+    <meta charset="UTF-8">
+    <title>Exercise- Simple calculator</title>
+</head>
+<body>
+<form>
+<table>
+    <tr>
+        <td colspan="4"><input type="text" id="result"/></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="re(this.value);"/></td>
+        <td><input type="button" value="2" onclick="re(this.value);"/></td>
+        <td><input type="button" value="3" onclick="re(this.value);"/></td>
+        <td><input type="button" value="+" onclick="re(this.value);"/></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="re(this.value);"/></td>
+        <td><input type="button" value="5" onclick="re(this.value);"/></td>
+        <td><input type="button" value="6" onclick="re(this.value);"/></td>
+        <td><input type="button" value="-" onclick="re(this.value);"/></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="re(this.value);"/></td>
+        <td><input type="button" value="8" onclick="re(this.value);"/></td>
+        <td><input type="button" value="9" onclick="re(this.value);"/></td>
+        <td><input type="button" value="x" onclick="re(this.value);"/></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="C" onclick="clear();"/></td>
+        <td><input type="button" value="0" onclick="re(this.value);"/></td>
+        <td><input type="button" value="=" onclick="resu();"/></td>
+        <td><input type="button" value="/" onclick="re(this.value);"/></td>
+    </tr>
+</table>
+</form>
+<script>
+    let x = '';
+    function re(value) {
+        x = x + value;
+        document.getElementById("result").innerHTML = x;
+    }
+    function clear() {
+        x = '';
+        document.getElementById("result").innerHTML = x;
+    }
+    function  resu() {
+        x = eval(x);
+        document.getElementById("result").innerHTML = x;
+    }
+</script>
+</body>
+</html>
