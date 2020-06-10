@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice with switch-case structure</title>
+</head>
+<body>
+<p> Bài 1</p>
+<script>
+    let browser = prompt("Nhập vào đây: ")
+    switch (browser) {
+       case 'Edge':
+           alert("You 've got the Edge");
+            break;
+        case 'Chrome':
+        case 'Firefox':
+        case 'Safari':
+        case 'Opera':
+            alert("Okay we support these browsers too");
+            break;
+        default:
+            alert("We hope that this page looks ok!");
+    }
+</script>
+<p> Bài 2</p>
+<script>
+    let a = parseInt(prompt('a?', ''));
+    switch (a) {
+        case 0:
+            alert('0');
+            break;
+        case 1:
+            alert('1');
+            break;
+        case 2:
+        case 3:
+            alert('2,3');
+            break;
+    }
+</script>
+<p> Bài 3</p>
+<script>
+    let value = prompt('Type a number','0')
+    switch (value>0 ? 1 : (value <0) ? -1 : 0)
+    {
+        case 1:
+            alert(1);
+            break;
+        case -1:
+            alert(-1);
+            break;
+        default:
+            alert(0)
+    }
+</script>
+</body>
+</html>
