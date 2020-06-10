@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice with three operator</title>
+</head>
+<body>
+<h3> Bài 2</h3>
+<script>
+    let login = prompt("Nhập giá trị vào đây: ")
+    let message = (login == 'Employee') ?
+        'Hello':
+        (login == 'Director') ?
+        'Greetings':
+        (login == '') ?
+            'No login':
+            '';
+    alert(message)
+</script>
+</body>
+</html>
