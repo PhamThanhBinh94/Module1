@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise- Happy DoYouLoveMe App</title>
+</head>
+<body>
+<h3>Do you love me?</h3>
+<input id="hihi" type="button" value="YES" onclick="haha();"/>
+<input id="hihi1" type="button" value="NO" onmouseover="haha1();" style="left: 0px;top: 0px;position: relative"/>
+<script>
+    function haha() {
+        alert("Yes. you are right")
+    }
+    function haha1() {
+    let a = Math.floor(Math.random()* window.innerWidth);
+    let b = Math.floor(Math.random()* window.innerHeight);
+    document.getElementById("hihi1").style.left = a + 'px';
+    document.getElementById("hihi1").style.top =  b + 'px';
+    }
+</script>
+</body>
+</html>
