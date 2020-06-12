@@ -4,67 +4,11 @@
     <meta charset="UTF-8">
     <title>Máy tính đơn giản</title>
     <style>
-        table {
-            border-collapse: collapse;
-            border: 1px solid black; width: 100px;
-        }
-        th {
-            padding: 8px; height: 20px;
-            border: 1px solid black;
-        }
-        td {
-            padding: 8px;
-            border: white;
-            background-color: cornsilk;
-        }
     </style>
 </head>
 <body>
-<form>
-    <table>
-        <tr>
-            <th colspan="4"><span id="Result"></span></th>
-        </tr>
-        <tr>
-            <td><input type="button" value="1" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="2" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="3" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="+" onclick="Bthuc(this.value);"/></td>
-        </tr>
-        <tr>
-            <td><input type="button" value="4" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="5" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="6" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="-" onclick="Bthuc(this.value);"/></td>
-        </tr>
-        <tr>
-            <td><input type="button" value="7" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="8" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="9" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="*" onclick="Bthuc(this.value);"/></td>
-        </tr>
-        <tr>
-            <td><input type="button" value="C" onclick="clear1();"/></td>
-            <td><input type="button" value="0" onclick="Bthuc(this.value);"/></td>
-            <td><input type="button" value="=" onclick="getRes();"></td>
-            <td><input type="button" value="/" onclick="Bthuc(this.value);"/></td>
-        </tr>
-    </table>
-</form>
 <script>
-    let Res='';
-    function Bthuc(value) {
-        Res = Res + value;
-        document.getElementById('Result').innerHTML = Res;
-    }
-    function clear1() {
-        Res = '';
-        document.getElementById('Result').innerHTML = Res;
-    }
-    function getRes() {
-        Res = eval(Res);
-        document.getElementById('Result').innerHTML = Res;
-    }
+
 </script>
 </body>
 </html>
