@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Luyện tập cấu trúc điều kiện 01- bài 5</title>
+</head>
+<body>
+<script>
+    let dm = +prompt("Điểm kiểm tra miệng là:")
+    let d15p = +prompt("Điểm kiểm tra 15 phút là:")
+    let d60p = +prompt("Điểm kiểm tra 60 phút là:")
+    let dck = +prompt("Điểm kiểm tra cuối kỳ là:")
+    let avg=(dm +d15p +d60p*2+dck*2)/6
+    if (avg >= 8.0){
+        alert("HỌc sinh xếp loại giỏi")
+    } else if (avg >= 6.5)
+    {
+        alert("HỌc sinh xếp loại khá")
+    }else if (avg >= 5){
+        alert("HỌc sinh xếp loại trung bình")
+    }else alert("HỌc sinh xếp loại yếu")
+</script>
+</body>
+</html>

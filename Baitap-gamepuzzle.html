@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Game puzzle</title>
+</head>
+<body>
+<img id="pic1" onclick="changeImg1()" src="chim1.jpg" width="150">
+<img id="pic2" onclick="changeImg2()" src="cho2.jpg" width="150"><br>
+<img id="pic3" onclick="changeImg3()" src="gau3.jpg" width="150">
+<img id="pic4" onclick="changeImg4()" src="chim4.jpg" width="150">
+
+<script>
+ function changeImg1() {
+     let img1 = document.getElementById('pic1');
+     if (img1.src.match('chim')){
+         img1.src = 'cho1.jpg';
+     }else if (img1.src.match('cho')){
+         img1.src = 'gau1.jpg';
+     }else img1.src = 'chim1.jpg'
+ }
+ function changeImg2() {
+     let img1 = document.getElementById('pic2');
+     if (img1.src.match('chim')){
+         img1.src = 'cho2.jpg';
+     }else if (img1.src.match('cho')){
+         img1.src = 'gau2.jpg';
+     }else img1.src = 'chim2.jpg'
+ }
+ function changeImg3() {
+     let img1 = document.getElementById('pic3');
+     if (img1.src.match('chim')){
+         img1.src = 'cho3.jpg';
+     }else if (img1.src.match('cho')){
+         img1.src = 'gau3.jpg';
+     }else img1.src = 'chim3.jpg'
+ }
+ function changeImg4() {
+     let img1 = document.getElementById('pic4');
+     if (img1.src.match('chim')){
+         img1.src = 'cho4.jpg';
+     }else if (img1.src.match('cho')){
+         img1.src = 'gau4.jpg';
+     }else img1.src = 'chim4.jpg'
+ }
+</script>
+</body>
+</html>

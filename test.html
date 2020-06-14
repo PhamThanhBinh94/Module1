@@ -1,14 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Máy tính đơn giản</title>
-    <style>
-    </style>
+    <title>Game Puzzle</title>
 </head>
 <body>
+<img id = "pic1" onclick="changeImage1();check()" src="chandra1.jpg">
+<img id = "pic2" onclick="changeImage2();check()" src="vraska2.jpg">
+<br>
+<img id = "pic3" onclick="changeImage3();check()" src="narset3.jpg">
+<img id = "pic4" onclick="changeImage4();check()" src="nissa4.jpg">
 <script>
+    let img1 = document.getElementById('pic1');
+    let img2 = document.getElementById('pic2');
+    let img4 = document.getElementById('pic4');
+    let img3 = document.getElementById('pic3');
+    function changeImage1() {
+        if (img1.src.match('chandra')) {
+            img1.src = 'vraska1.jpg';
+        } else if (img1.src.match('vraska')) {
+            img1.src = 'narset1.jpg';
+        } else if (img1.src.match("narset")){
+            img1.src = 'nissa1.jpg';
+        } else
+            img1.src = 'chandra1.jpg'
+    }
+    function changeImage2() {
+        if (img2.src.match('chandra')) {
+            img2.src = 'vraska2.jpg';
+        } else if (img2.src.match('vraska')) {
+            img2.src = 'narset2.jpg';
+        } else if (img2.src.match("narset")){
+            img2.src = 'nissa2.jpg';
+        } else
+            img2.src = 'chandra2.jpg'
+    }
+    function changeImage3() {
+        if (img3.src.match('chandra')) {
+            img3.src = 'vraska3.jpg';
+        } else if (img3.src.match('vraska')) {
+            img3.src = 'narset3.jpg';
+        } else if (img3.src.match("narset")){
+            img3.src = 'nissa3.jpg';
+        } else
+            img3.src = 'chandra3.jpg'
+    }
+    function changeImage4() {
+        if (img4.src.match('chandra')) {
+            img4.src = 'vraska4.jpg';
+        } else if (img4.src.match('vraska')) {
+            img4.src = 'narset4.jpg';
+        } else if (img4.src.match("narset")){
+            img4.src = 'nissa4.jpg';
+        } else
+            img4.src = 'chandra4.jpg'
+    }
+    function check() {
 
+        if (img1.src.match("chandra")){
+            if (img2.src.match("chandra")){
+                if (img3.src.match("chandra")){
+                    if (img4.src.match("chandra")){
+                        setTimeout(function () {
+                            alert("puzzle matched");
+                        }, 50);
+                    }
+                }
+            }
+        } else if (img1.src.match("vraska")){
+            if (img2.src.match("vraska")){
+                if (img3.src.match("vraska")){
+                    if (img4.src.match("vraska")){
+                        setTimeout(function () {
+                            alert("puzzle matched");
+                        }, 50);
+                    }
+                }
+            }
+        }
+        else  if (img1.src.match("nissa")){
+            if (img2.src.match("nissa")){
+                if (img3.src.match("nissa")){
+                    if (img4.src.match("nissa")){
+                        setTimeout(function () {
+                            alert("puzzle matched");
+                        }, 50);
+                    }
+                }
+            }
+        }
+        else if (img1.src.match("narset")){
+            if (img2.src.match("narset")){
+                if (img3.src.match("narset")){
+                    if (img4.src.match("narset")){
+                        setTimeout(function () {
+                            alert("puzzle matched");
+                        }, 50);
+                    }
+                }
+            }
+        }
+    }
 </script>
 </body>
 </html>
