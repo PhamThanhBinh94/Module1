@@ -2,228 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Luyện tâp cấu trúc điều kiện 2</title>
+    <title>Luyện tập vòng lặp 1_8</title>
 </head>
 <body>
-<h3>Bài 1:</h3>
-<p>Nhập độ C: <input type="number" id="doC"> <input type="button" value="Đổi" onclick="doiCsangF();"></p>
-<p>Đổi sang độ F: <span id="doF"></span> </p>
+<form></form>
+<input type="button" value="Chơi" onclick="Play();"/>
+</form>
 <script>
-    function doiCsangF() {
-        let doC = parseFloat(document.getElementById('doC').value);
-        let doF = (doC * 9/5 + 32);
-        document.getElementById('doF').innerHTML = doF;
-    }
-</script>
-<h3>Bài 2:</h3>
-<p>Nhập chiều dài (m): <input type="number" id="met"> <input type="button" value="Đổi" onclick="MetsangFt();"/></p>
-<p>Đổi sang feet: <span id="feet"></span> </p>
-<script>
-    function MetsangFt() {
-        let met = document.getElementById('met').value;
-        let feet = (met * 3.2808);
-        document.getElementById('feet').innerHTML = feet.toFixed(4);
-    }
-</script>
-<h3>Bài 3:</h3>
-<p>Nhập cạnh hình vuông: <input type="number" id="canhHV"> <input type="button" value="Tính Dtích" onclick="tinhShv();"></p>
-<p>Diện tích hình vuông là: <span id="dtichHV"></span> </p>
-<script>
-    function tinhShv() {
-        let canhHV = document.getElementById('canhHV').value;
-        let dtichHV = (canhHV * canhHV);
-        document.getElementById('dtichHV').innerHTML = dtichHV.toFixed(2);
-    }
-</script>
-<h3>Bài 4:</h3>
-<p>Nhập chiều dài: <input type="number" id="cdai"/></p>
-<p>Nhập chiều rộng: <input type="number" id="crong"/></p>
-<p><input type="button" value="Tính Dtích" onclick="tinhShcn();"/></p>
-<p>Diện tích hình chữ nhật là: <span id="dtichHCN"></span> </p>
-<script>
-    function tinhShcn() {
-        let cdai = document.getElementById('cdai').value;
-        let crong = document.getElementById('crong').value;
-        let dtichHCN = (cdai * crong);
-        document.getElementById('dtichHCN').innerHTML = dtichHCN.toFixed(2);
-    }
-</script>
-<h3>Bài 5:</h3>
-<p>Nhập cạnh góc vuông 1: <input type="number" id="cgv1"/></p>
-<p>Nhập cạnh góc vuông 2: <input type="number" id="cgv2"/></p>
-<p><input type="button" value="Tính Dtích" onclick="tinhStgv();"/></p>
-<p>Diện tích tam giác vuông là: <span id="dtichTGV"></span> </p>
-<script>
-    function tinhStgv() {
-        let cgv1 = document.getElementById('cgv1').value;
-        let cgv2 = document.getElementById('cgv2').value;
-        let dtichTGV = (cgv1 * cgv2 / 2);
-        document.getElementById('dtichTGV').innerHTML = dtichTGV.toFixed(2);
-    }
-</script>
-<h3>Bài 6:</h3>
-<p>Giải phương trình ax + b = 0</p>
-<p>Nhập a: <input type="number" id="a1"/></p>
-<p>Nhập b: <input type="number" id="b1"/></p>
-<p><input type="button" value="Tìm x" onclick="giaiPTb1();"/></p>
-<p><span id="kqua1"></span></p>
-<script>
-    function giaiPTb1() {
-        let a1 = document.getElementById('a1').value;
-        let b1 = document.getElementById('b1').value;
-        if (a1 === 0) {
-            if (b1 === 0) {
-                document.getElementById('kqua1').innerText = 'Phương trình vô số nghiệm';
-            } else {
-                document.getElementById('kqua1').innerText = 'Phương trình vô nghiệm';
-            }
-        } else {
-            let nghiem = (-b1 / a1);
-            document.getElementById('kqua1').innerHTML = 'Phương trình có nghiệm duy nhất x = ' + nghiem.toFixed(2);
+    let sodau, socuoi, soDudoan, count;
+    function Play() {
+        sodau = +prompt('Chọn số đầu: ');
+        socuoi = +prompt('Chọn số cuối: ');
+        while (socuoi <= sodau) {
+            socuoi = +prompt('Nhập lại số cuối: ');
         }
-    }
-</script>
-<h3>Bài 7:</h3>
-<p>Giải phương trình ax<sup>2</sup> + bx + c = 0</p>
-<p>Nhập a: <input type="number" id="a2"/></p>
-<p>Nhập b: <input type="number" id="b2"/></p>
-<p>Nhập c: <input type="number" id="c2"/></p>
-<p><input type="button" value="Tìm x" onclick="giaiPTb2();"></p>
-<p><span id="kqua2"></span></p>
-<script>
-    function giaiPTb2() {
-        let a2 = document.getElementById('a2').value;
-        let b2 = document.getElementById('b2').value;
-        let c2 = document.getElementById('c2').value;
-        if (a2 === 0) {
-            if (b2 === 0) {
-                if (c2 === 0) {
-                    document.getElementById('kqua2').innerText = 'Phương trình vô số nghiệm';
-                } else {
-                    document.getElementById('kqua2').innerText = 'Phương trình vô nghiệm';
-                }
+        let soNgaunhien = Math.floor(Math.random() * (socuoi - sodau + 1) + sodau);
+        soDudoan = +prompt('Dự đoán một số trong khoản đó: ');
+        for (count = 0; count < 3; count++) {
+            if (soDudoan == soNgaunhien) {
+                alert('Chúc mừng');
+                count = 3;
             } else {
-                let Nghiem = (-c2 / b2);
-                document.getElementById('kqua2').innerHTML = 'Phương trình có nghiệm duy nhất x = ' + Nghiem.toFixed(2);
-            }
-        } else {
-            let delta = (b2 * b2 - 4 * a2 * c2);
-            if (delta < 0) {
-                document.getElementById('kqua2').innerText = 'Phương trình vô nghiệm';
-            } else if (delta === 0) {
-                let Nghiem = (-b2 / (2 * a2));
-                document.getElementById('kqua2').innerHTML = 'Phương trình có nghiệm duy nhất x = ' + Nghiem.toFixed(2);
-            } else {
-                let Nghiem1 = ((-b2 + Math.sqrt(delta))/(2 * a2));
-                let Nghiem2 = ((-b2 - Math.sqrt(delta))/(2 * a2));
-                document.getElementById('kqua2').innerHTML = 'Phương trình có hai nghiệm phân biệt là ' + Nghiem1.toFixed(2) + ' và ' + Nghiem2.toFixed(2);
+                soDudoan = +prompt('Nhập lại');
             }
         }
+        alert('End game');
     }
 </script>
-<h3>Bài 8:</h3>
-<p>Nhập số tuổi: <input type="number" id="tuoi"/> <input type="button" value="Kiểm tra" onclick="ktra();"/></p>
-<p><span id="Kqua3"></span></p>
-<script>
-    function ktra() {
-        let tuoi = document.getElementById('tuoi').value;
-        let soNguyen = (tuoi - parseInt(tuoi));
-        if (soNguyen == 0 && tuoi > 0 && tuoi < 120) {
-            document.getElementById('Kqua3').innerText = 'Đây là tuổi người.';
-        } else {
-            document.getElementById('Kqua3').innerText = 'Đây không phải tuổi người.';
-        }
-    }
-</script>
-<h3>Bài 9:</h3>
-<p>Kiểm tra 3 số a, b, c có phải độ dài ba cạnh tam giác không</p>
-<p>Nhập a: <input type="number" id="a3"/></p>
-<p>Nhập b: <input type="number" id="b3"/></p>
-<p>Nhập c: <input type="number" id="c3"/> <input type="button" value="Kiểm tra" onclick="kTra();"/></p>
-<p><span id="kQua"></span></p>
-<script>
-    function kTra() {
-        let a3 = parseFloat(document.getElementById('a3').value);
-        let b3 = parseFloat(document.getElementById('b3').value);
-        let c3 = parseFloat(document.getElementById('c3').value);
-        if ((a3 > 0 && b3 > 0 && c3 >0)
-            && ((a3 + b3) > c3)
-            && ((a3 + c3) > b3)
-            && ((b3 + c3) > a3)) {
-            document.getElementById('kQua').innerText = 'Đây là độ dài 3 cạnh tam giác';
-        } else {
-            document.getElementById('kQua').innerText = 'Đây không phải độ dài 3 cạnh tam giác';
-        }
-    }
-</script>
-<h3>Bài 10:</h3>
-<p>Tính giá điện (theo <a target="_blank" href="https://www.evn.com.vn/c3/evn-va-khach-hang/Bieu-gia-ban-le-dien-9-79.aspx">biểu giá bán lẻ điện sinh hoạt</a>)</p>
-<p>Nhập số điện sử dụng (kWh): <input type="number" id="kWh"/>&nbsp;<input type="button" value="Tính tiền" onclick="Tinhtien();"></p>
-<p>Tiền điện phải trả là: <span id="tiendien"></span></p>
-<script>
-    function Tinhtien() {
-        let kWh = parseInt(document.getElementById('kWh').value);
-        let bac1 = 1678; bac2 = 1734; bac3 = 2014; bac4 = 2536; bac5 = 2834; bac6 = 2461;
-        let tiendien;
-        if (kWh <= 50) {
-            tiendien = (bac1 * kWh);
-        } else if (kWh <= 100) {
-            tiendien = ((bac1 * 50) + (kWh - 50) * bac2);
-        } else if (kWh <= 200) {
-            tiendien = ((bac1 * 50) + (50 * bac2) + (kWh - 100) * bac3);
-        } else if (kWh <= 300) {
-            tiendien = ((bac1 * 50) + (50 * bac2) + (100 * bac3) + (kWh - 200) * bac4);
-        } else if (kWh <= 400) {
-            tiendien = ((bac1 * 50) + (50 * bac2) + (100 * bac3) + (100 * bac4) + (kWh - 300) * bac5);
-        } else {
-            tiendien = ((bac1 * 50) + (50 * bac2) + (100 * bac3) + (100 * bac4) + (100 * bac5) + (kWh - 400) * bac6);
-        }
-        document.getElementById('tiendien').innerHTML = tiendien + ' VND';
-    }
-</script>
-<h3>Bài 11:</h3>
-<p>Tính thuế TNCN theo <a href="http://dichvuketoangiare.org/i919-cach-tinh-thue-thu-nhap-ca-nhan-nam-2020.html">biểu thuế lũy tiến</a></p>
-<p>Nhập thu nhập tháng (triệu đồng): <input type="number" id="thunhap"/>&nbsp;
-    <input type="button" value="Tính thuế" onclick="tinhthue();">
-</p>
-<p>Tiền thuế TNCN là: <span id="tienthue"></span></p>
-<script>
-    function tinhthue() {
-        let thunhap = parseFloat(document.getElementById('thunhap').value);
-        let tienthue = 0;
-        if (thunhap <= 5) {
-            tienthue += (thunhap * 0.05);
-        } else if (thunhap <= 10) {
-            tienthue += (thunhap * 0.1 - 0.25);
-        } else if (thunhap <= 18) {
-            tienthue += (thunhap * 0.15 - 0.75);
-        } else if (thunhap <= 32) {
-            tienthue += (thunhap * 0.2 - 1.65);
-        } else if (thunhap <= 52) {
-            tienthue += (thunhap * 0.25 - 3.25);
-        } else if (thunhap <= 80) {
-            tienthue += (thunhap * 0.3 - 5.85);
-        } else {
-            tienthue += (thunhap * 0.35 - 9.85);
-        }
-        document.getElementById('tienthue').innerHTML = tienthue + ' triệu đồng';
-    }
-</script>
-<h3>Bài 12:</h3>
-<p>Số tiền vay (VND): <input type="number" id="sotien"/></p>
-<p>Thời gian vay (tháng): <input type="number" id="thangvay"/></p>
-<p>Lãi suất (%/tháng): <input type="number" id="laisuat"/>&nbsp;
-    <input type="button" value="Tính lãi" onclick="tinhTien();"/>
-</p>
-<p>Tiền lãi tổng cộng: <span id="tienlai"></span></p>
-<p>Tổng số tiền phải trả: <span id="tongtien"></span></p>
-<script>
-    function tinhTien() {
-        let sotien = document.getElementById('sotien').value;
-        let thangvay = document.getElementById('thangvay').value;
-        let laisuat = document.getElementById('laisuat').value;
-        let tongtien = (sotien * Math.pow((1 + laisuat/100), thangvay));
-        let tienlai = parseInt(tongtien) - parseInt(sotien);
-        document.getElementById('tienlai').innerHTML = parseInt(tienlai);
-        document.getElementById('tongtien').innerHTML = parseInt(tongtien);
-    }
+</body>
+</html>
