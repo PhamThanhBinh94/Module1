@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[*Bài tập]- Luyện tập vòng lặp 01</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<script>
+    for (i=1; i <= 99; i++ ) {
+        document.write(i);
+    }
+    alert("Đã hoàn thành nhiệm vụ")
+</script>
+<h3>Bài 2</h3>
+<p>Nhiệt độ là: <div id="temperature"></div></p>
+<script>
+    let a = +prompt("Nhiệt độ hiện tại là: ")
+    if (a >100) {
+        document.getElementById("temperature").value = document.write("Yêu cầu người dùng giảm nhiệt độ")
+    } else if (a <20) {
+        document.getElementById("temperature").value = document.write("Yêu cầu người dùng tăng nhiệt độ")
+    } else a = +prompt("Nhập lại nhiệt độ: ")
+</script>
+<h3>Bài 3</h3>
+<script>
+   let fibonacci1 = 0
+   let fibonacci2 = 1
+   let fibonacci3 = fibonacci1 + fibonacci2
+   // document.write(fibonacci1 +"<br>")
+   // document.write(fibonacci2 +"<br>")
+   let i=0
+    while (i<=19)
+    {
+        fibonacci3 = fibonacci1 + fibonacci2
+        document.write(fibonacci1 + "<br>")
+        fibonacci1 = fibonacci2
+        fibonacci2 = fibonacci3
+        i++
+        // if (fibonacci3 %5 ==0) {
+        //     document.write("Số đầu tiên trong dãy chia hết cho 5 là" + fibonacci3)
+        // } break;
+    }
+</script>
+<h3>Bài 4</h3>
+<script>
+   let fibonacci11 = 0
+   let fibonacci22 = 1
+   let fibonacci33 = fibonacci11 + fibonacci22
+   // document.write(fibonacci1 +"<br>")
+   // document.write(fibonacci2 +"<br>")
+   let i2=0
+    while (i2<=19)
+    {
+        fibonacci33 = fibonacci11 + fibonacci22
+        document.write(fibonacci11 + "<br>")
+        fibonacci11 = fibonacci22
+        fibonacci22 = fibonacci33
+        i++
+        if (fibonacci33 %5 ==0) {
+            document.write("Số đầu tiên trong dãy chia hết cho 5 là" + fibonacci33)
+        } break;
+    }
+</script>
+<h3>Bài 5</h3>
+<script>
+   let fibonacci14 = 0
+   let fibonacci24 = 1
+   let fibonacci34 = fibonacci14 + fibonacci24
+   let total = 0
+   let i4=0
+   while (i4<=19)
+    {
+        fibonacci34 = fibonacci14 + fibonacci24
+        document.write(fibonacci14 + "<br>")
+
+        fibonacci14 = fibonacci24
+        fibonacci24 = fibonacci34
+        i4++
+        total += fibonacci34
+    }
+   document.write(total)
+
+</script>
+<h3>Bài 6</h3>
+<script>
+    let count = 0;
+    let value1 = 1;
+    while (count <30){
+        if (value1 %7 == 0) {
+            count++;
+            document.write(value1 + "<br>")
+        } value1++;
+    }
+</script>
+<h3>Bài 7</h3>
+<script>
+    let count = 1;
+    let value1 = 1;
+    while (count <= 100){
+        if (value1 %3 == 0) {
+            count++;
+            document.write(": Fizz" + "<br>")
+        } else document.write(": Buzz" + "<br>")
+        value1++;
+    }
+</script>
+<h3>Bài 8: " Hãy đoán thử xem! "</h3>
+<input type="button" value="Chơi" onclick="play()"/>
+<script>
+    let number1;number2; numberGuess; count;
+    function play() {
+        number1 = +prompt("Số đầu tiên là:");
+        number2 = prompt("Số cuối là:");
+        let numberRandom = Math.floor(Math.random()*(number2 -number1));
+        document.write(numberRandom)
+        numberGuess = prompt("Số dự đoán trong khoảng đó là: ");
+        for (count =0;count <3; count++) {
+            if (numberGuess == numberRandom) {
+                alert("Chúc mừng bạn đã thắng");
+            } else numberGuess = prompt("Nhập lại số khác: ")
+        } alert("Trò chơi kết thúc");
+    }
+</script>
+</body>
+</html>
