@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<p> ĐỘ C là: <input id="doC" type="number" value="45"> </p>
+<p> Độ F là: <div id="doF"></div> </p>
+<input id="CF" type="button" value="Change" onclick="convert()">
+<script>
+    function convert() {
+        let C =document.getElementById("doC").value;
+        let F = C * 9/5 +32;
+        document.getElementById("doF").innerHTML = F;
+    }
+</script>
+<h3>Bài 2</h3>
+<p> Chiều dài là: <input id="chieudai" type="number" value=""> </p>
+<p> Feet là: <div id="feet"></div> </p>
+<input id="feet" type="button" value="Change" onclick="convert1()">
+<script>
+    function convert1() {
+        let m =parseFloat(document.getElementById("chieudai").value);
+        let ft = m * 3.2808;
+        document.getElementById("feet").innerHTML = ft;
+    }
+</script>
+<h3>Bài 3</h3>
+<p> Cạnh a là: <input id="canh" type="number" value=""> </p>
+<p> Diện tích hình vuông là: <div id="dientich"></div> </p>
+<input id="s" type="button" value="Tính" onclick="calculate()">
+
+<script>
+    function calculate() {
+        let a1 = document.getElementById("canh").value ;
+        let s1 = a1 * a1;
+        document.getElementById("dientich").innerHTML = s1;
+    }
+</script>
+<h3>Bài 4</h3>
+<p> Cạnh a là: <input id="canha" type="number" value="a"> </p>
+<p> Cạnh b là: <input id="canhb" type="number" value="b"> </p>
+<p> Diện tích hình chữ nhật là: <div id="dientich1"></div> </p>
+<input id="s1" type="button" value="Tính" onclick="calculate1()">
+<script>
+    function calculate1() {
+        let a1 = document.getElementById("canha").value
+        let b1 = document.getElementById("canhb").value
+        document.getElementById("dientich1").innerHTML = a1*b1
+    }
+</script>
+<h3>Bài 5</h3>
+<p> Cạnh a là: <input id="canha1" type="number" value="a"> </p>
+<p> Cạnh b là: <input id="canhb1" type="number" value="b"> </p>
+<p> Diện tích tam giác vuông là: <div id="dientich2"></div> </p>
+<input id="s2" type="button" value="Tính" onclick="calculate2()">
+<script>
+    function calculate2() {
+        let a2 = document.getElementById("canha1").value
+        let b2 = document.getElementById("canhb1").value
+        let dientichtgv = (a2*b2)/2
+        document.getElementById("dientich2").innerHTML = dientichtgv
+    }
+</script>
+<h3>Bài 6</h3>
+<p>Giải phương trình: ax +b = 0</p>
+<p> a là: <input id="canha2" type="number" value="a"> </p>
+<p> b là: <input id="canhb2" type="number" value="b"> </p>
+<p> Đáp án là: <div id="eval"></div> </p>
+<input id="s3" type="button" value="Tính" onclick="calculate3()">
+<script>
+    function calculate3() {
+        let a3 = document.getElementById("canha2").value
+        let b3 = document.getElementById("canhb2").value
+        if (a3 === 0) {
+            if (b3 === 0) {
+                document.getElementById("eval").innerText = " Phương trình vô số nghiệm"
+            } else document.getElementById("eval").innerText = " Phương trình vô nghiệm"
+        } else {
+            let no = (-b3 / a3)
+            document.getElementById("eval").innerHTML = " Phương trình có nghiệm duy nhất: " + no.toFixed(2)
+        }
+    }
+
+</script>
+<h3>Bài 7</h3>
+<p>Giải phương trình: ax&sup2; +bx +c = 0</p>
+<p> a là: <input id="canha3" type="number" value="a"> </p>
+<p> b là: <input id="canhb3" type="number" value="b"> </p>
+<p> c là: <input id="canhc3" type="number" value="c"> </p>
+<p> Đáp án là: <div id="eval1"></div> </p>
+<input id="s4" type="button" value="Tính" onclick="calculate4()">
+<script>
+    function calculate4() {
+        let a4 = document.getElementById("canha3").value;
+        let b4 = document.getElementById("canhb3").value;
+        let c4 = document.getElementById("canhc3").value;
+        if (a4===0) {
+            if (b4 === 0) {
+                if (c4 === 0) {
+                    document.getElementById("eval1").innerText = " Phương trình vô số nghiệm"
+                } else {
+                    document.getElementById("eval1").innerText = " Phương trình vô nghiệm"
+                }
+            } else {
+                let no1 = -c4 / b4
+                document.getElementById("eval1").innerText = " Phương trình có nghiệm duy nhất là: " + no1.toFixed(2)
+            }
+        } else {
+        let delta = (b4 * b4 - 4 * a4 * c4);
+        if (delta < 0) {
+            document.getElementById('eval1').innerText = 'Phương trình vô nghiệm';
+        } else if (delta === 0) {
+            let no2 = (-b4 / (2 * a4));
+            document.getElementById('eval1').innerHTML = 'Phương trình có nghiệm duy nhất x = ' + no2.toFixed(2);
+        } else {
+            let no3 = ((-b4 + Math.sqrt(delta))/(2 * a4));
+            let no4 = ((-b4 - Math.sqrt(delta))/(2 * a4));
+            document.getElementById('eval1').innerHTML = 'Phương trình có hai nghiệm phân biệt là ' + no4.toFixed(2) + ' và ' + no4.toFixed(2);
+        }
+    }
+    }
+</script>
+<h3>Bài 8</h3>
+<p> Nhập số tuổi vào đây <input id="tuoi" type="number" value="a"> </p>
+<p> Tuổi của một người là <div id="age"></div> </p>
+<input id="ktra" type="button" value="Kiểm tra" onclick="check()">
+<script>
+function check() {
+    let age = +document.getElementById("tuoi").value
+    if (age < 120) {
+        if (age > 0) {
+            document.write("Đây là tuổi của một người")
+        } else {
+            document.write("Đây không phải là tuổi của một người")
+        }
+    } else document.write("Đây không phải là tuổi của một người")
+}
+</script>
+<h3>Bài 9</h3>
+<p> a là: <input id="ala" type="number" value="a"> </p>
+<p> b là: <input id="bla" type="number" value="b"> </p>
+<p> c là: <input id="cla" type="number" value="c"> </p>
+<p> Kết quả là <div id="number"></div> </p>
+<input id="ktra" type="button" value="Kiểm tra" onclick="check1()">
+<script>
+    function check1() {
+        let a = parseFloat(document.getElementById("ala").value)
+        let b = parseFloat(document.getElementById("bla").value)
+        let c = parseFloat(document.getElementById("cla").value)
+        if ((a>0 && b>0 && c>0) &&
+             (a+b>c) && (b+c>a) && (a + c > b))
+        {
+            document.write("Đây là 3 cạnh của một tam giác")
+        }
+        else {
+            document.write("Đây không phải là 3 cạnh của một tam giác")
+        }
+    }
+</script>
+</body>
+</html>
