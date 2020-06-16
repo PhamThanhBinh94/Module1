@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập - Từ điển</title>
+</head>
+<body>
+<input id="search" type="text"/>
+<input id="" type="button" value="Tra cứu" onclick="timkiem();"/>
+<div id="eval"></div>
+<script>
+    let tienganh = ["table", "chair", "book","laptop", "computer","telephone"];
+    let tiengviet = ["bàn", "ghế", "sách", "máy tính xách tay" , "máy tính để bàn" , "điện thoại"];
+    function timkiem() {
+        let tutracuu = document.getElementById("search").value;
+        for (let i = 0; i < tienganh.length; i ++)
+        {
+            if (tienganh[i] == tutracuu){
+                tutracuu = tiengviet[i]
+                document.getElementById("eval").innerHTML = tutracuu
+                break;
+            } else document.getElementById('eval').innerText = "Không tìm thấy kết quả";
+        }
+    }
+</script>
+</body>
+</html>

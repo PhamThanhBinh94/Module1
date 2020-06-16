@@ -72,12 +72,11 @@
    while (i4<=19)
     {
         fibonacci34 = fibonacci14 + fibonacci24
-        document.write(fibonacci14 + "<br>")
-
         fibonacci14 = fibonacci24
         fibonacci24 = fibonacci34
+        total += fibonacci14
+        document.write(fibonacci14 + "<br>")
         i4++
-        total += fibonacci34
     }
    document.write(total)
 
