@@ -2,31 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Luyện tập vòng lặp 1_8</title>
+    <title>Luyện tập vòng lặp 2_3</title>
 </head>
 <body>
-<form></form>
-<input type="button" value="Chơi" onclick="Play();"/>
-</form>
 <script>
-    let sodau, socuoi, soDudoan, count;
-    function Play() {
-        sodau = +prompt('Chọn số đầu: ');
-        socuoi = +prompt('Chọn số cuối: ');
-        while (socuoi <= sodau) {
-            socuoi = +prompt('Nhập lại số cuối: ');
+    let i, j=0;
+    for (i=1; i <= 5; i++) {
+        for (j=1; j <= i; j++) {
+            document.write('*');
         }
-        let soNgaunhien = Math.floor(Math.random() * (socuoi - sodau + 1) + sodau);
-        soDudoan = +prompt('Dự đoán một số trong khoản đó: ');
-        for (count = 0; count < 3; count++) {
-            if (soDudoan == soNgaunhien) {
-                alert('Chúc mừng');
-                count = 3;
-            } else {
-                soDudoan = +prompt('Nhập lại');
-            }
+        document.write('<br>');
+    }
+    for (i=5; i >= 1; i--) {
+        for (j=1; j <= i; j++ ) {
+            document.write('*');
         }
-        alert('End game');
+        document.write('<br>');
+    }
+    document.write('<br>');
+    for (i=5; i >= 1; i--) {
+        for (j=1; j<i; j++) {
+            document.write('&nbsp;&nbsp;');
+        }
+        for (j=0; j <= (5-i); j++) {
+            document.write('*');
+        }
+        document.write('<br>');
+    }
+    document.write('<br>');
+    for (i=5; i >= 1; i--) {
+        for (j=1; j<=i; j++) {
+            document.write('*');
+        }
+        for (j=0; j<(5+i); j++) {
+            document.write('&nbsp;&nbsp;');
+        }
+        document.write('<br>');
     }
 </script>
 </body>

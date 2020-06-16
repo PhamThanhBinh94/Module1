@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Luyện tập vòng lặp 02</title>
+</head>
+<body><!--
+<h3>Bài 1</h3>
+<script>
+    let fibonacci1 = 1
+    let fibonacci2 = 0
+    let fibonacci3 = fibonacci1 + fibonacci2
+    // document.write(fibonacci1 +"<br>")
+    // document.write(fibonacci2 +"<br>")
+    let i=0
+    while (i<=19)
+    {
+        fibonacci3 = fibonacci1 + fibonacci2
+        document.write(fibonacci3 + "<br>")
+        fibonacci1 = fibonacci2
+        fibonacci2 = fibonacci3
+        i++
+        // if (fibonacci3 %5 ==0) {
+        //     document.write("Số đầu tiên trong dãy chia hết cho 5 là" + fibonacci3)
+        // } break;
+    }
+</script>
+<h3>Bài 2</h3>
+<p>Giai thừa của một số nguyên dương</p>
+<script>
+    let giaithua =1;
+    let n =+prompt("Nhập một số vào đây: ");
+    for (let i=1;i<=n;i++){
+        giaithua = giaithua*i;
+    }
+document.write(n + "!=" + giaithua);
+
+</script>-->
+<h3>Bài 3.1</h3>
+<script>
+    for (i=0; i<5; i++) {
+        for (j=0;j<=i; j++){document.write("*")}
+    document.write("<br>")
+    }
+</script>
+<h3>Bài 3.2</h3>
+<script>
+    for (i=5; i>=1; i--) {
+        for (j=0;j<i; j++){document.write("*")}
+        document.write("<br>")
+    }
+</script>
+<h3>Bài 3.3</h3>
+<script>
+    for (i=5; i >=1; i--) {
+        for (j=0;j<i; j++){document.write("&nbsp;&nbsp;")
+        }
+        for (j=0;j<=(5-i);j++){document.write("*")
+        }
+        document.write("<br>");
+    }
+</script>
+<h3>Bài 3.4</h3>
+
+</body>
+</html>
