@@ -6,39 +6,11 @@
 </head>
 <body>
 <script>
-    let i, j=0;
-    for (i=1; i <= 5; i++) {
-        for (j=1; j <= i; j++) {
-            document.write('*');
-        }
-        document.write('<br>');
-    }
-    for (i=5; i >= 1; i--) {
-        for (j=1; j <= i; j++ ) {
-            document.write('*');
-        }
-        document.write('<br>');
-    }
-    document.write('<br>');
-    for (i=5; i >= 1; i--) {
-        for (j=1; j<i; j++) {
-            document.write('&nbsp;&nbsp;');
-        }
-        for (j=0; j <= (5-i); j++) {
-            document.write('*');
-        }
-        document.write('<br>');
-    }
-    document.write('<br>');
-    for (i=5; i >= 1; i--) {
-        for (j=1; j<=i; j++) {
-            document.write('*');
-        }
-        for (j=0; j<(5+i); j++) {
-            document.write('&nbsp;&nbsp;');
-        }
-        document.write('<br>');
-    }
+    let a = new Array(12, false, "text");
+    x = 10;
+    if (a[1]) x = 20;
+    else x = 30;
+    alert(x)
 </script>
 </body>
 </html>
