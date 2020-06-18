@@ -2,9 +2,381 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Bài tập- Luyện tập mảng 01</title>
 </head>
 <body>
-$END$
+<h3>Bài 1</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    // function display1(a){
+    //     for (let i = 0; i <arr.length; i ++){
+    //         document.write(a[i] +" ")
+    //     }
+    // }
+    function check10(a) {
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] >= 10) {
+                document.write(a[i] + " ")
+            }
+        }
+    }
+    let arr = [];
+    inputArray(arr);
+    // display1(arr);
+    check10(arr);
+</script>
+<h3>Bài 2</h3>
+<p> Các phần tử trong mảng là: <div id="result"></div></p>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            let value = +prompt("Nhập phần tử thứ "+ i +"  :");
+            while (checkDuplication(value, a))
+            {alert("Nhập lại");
+                value = +prompt("Nhập phần tử thứ "+ i +"  :");
+            }
+            a[i] = value
+        }
+
+    }
+    function displayArray(a){
+            for (let i = 0; i <a.length; i ++){
+                document.write(a[i] +" ")
+          }
+    }
+
+    function checkDuplication(value, arr) {
+        for (let i = 0; i < arr.length; i ++){
+            if (arr[i] === value) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    inputArray(arr);
+    displayArray(arr);
+    maxArr(arr)
+</script>
+    <h3>Bài 2.1</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function displayArray(a){
+        for (let i = 0; i <a.length; i ++){
+            document.write(a[i] +" ")
+        }
+    }
+    function maxArr(a){
+        let max = a[0];
+        let i = 0
+        let b;
+        for (; i < a.length; i ++) {
+            if (max < a[i]) {
+                max = a[i]
+                b = i;
+            }
+        }
+        // } return max;
+        document.write("Phần tử có giá trị lớn nhất trong mảng là: " + max + "và vị trí của phần tử đó: " + b);
+    }
+    let arr = [];
+    inputArray(arr);
+    displayArray(arr);
+    maxArr(arr)
+</script>
+<h3>Bài 3</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function displayArray(a){
+        for (let i = 0; i <a.length; i ++){
+            document.write(a[i] +" ")
+        }
+    }
+    function maxArr(a){
+        let max = a[0];
+        let i = 0
+        let b;
+        for (; i < a.length; i ++) {
+            if (max < a[i]) {
+                max = a[i]
+                b = i;
+            }
+        }
+        // } return max;
+        document.write("Phần tử có giá trị lớn nhất trong mảng là: " + max + "và vị trí của phần tử đó: " + b);
+    }
+    let arr = [];
+    inputArray(arr);
+    // displayArray(arr);
+    // maxArr(arr);
+    function gttb(a) {
+        let gttb = 0;
+        for (let i=0; i< a.length; i ++){
+            gttb += a[i]/a.length;
+        }
+        return gttb;
+    }
+document.write("Giá trị trung bình trong mảng là: "+ gttb(arr))
+</script>
+<h3>Bài 4</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function displayArray(a){
+        for (let i = 0; i <a.length; i ++){
+            document.write(a[i] +" ")
+        }
+    }
+    let arr = [];
+    inputArray(arr);
+    displayArray(arr);
+    function change(arr) {
+        let first = 0
+        let last = arr.length-1
+        while (first<last){
+            let b = arr[first];
+            arr[first] = arr[last];
+            arr[last] =b;
+            first ++;
+            last--
+        }
+    }
+    // change(arr)
+    document.write("[" + arr +"]")
+</script>
+<h3>Bài 5</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function printSoAm(arr) {
+        for (let i = 0; i< arr.length; i ++){
+            if (arr[i] <0){document.write("Các số nguyên âm là: " + arr[i] + " ")
+           }
+        }
+    }
+    function displayArray(a){
+        for (let i = 0; i <a.length; i ++){
+            document.write(a[i] +" ")
+        }
+    }
+    let arr = [];
+    inputArray(arr);
+    displayArray(arr);
+    printSoAm(arr)
+</script>
+<h3>Bài 6</h3>
+<script>
+    let arr = []
+function inputArray(a) {
+let sizeArr;
+do {
+sizeArr = +prompt("Nhập kích thước mảng: ");
+} while (sizeArr <= 0);
+    for (let i=0;i <sizeArr;i ++){
+        a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+    }
+}
+// function displayArray(a){
+// for (let i = 0; i <a.length; i ++){
+// document.write(a[i] +" ")
+// }
+// }
+    inputArray(arr);
+    let value = +prompt("Nhập số V vào đây: ")
+    function checkDuplication(value, arr) {
+        for (let i = 0; i < arr.length; i ++){
+            if (arr[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function checkV(value, arr) {
+        if (checkDuplication(value, arr)) {
+            alert("V is in the array")
+        } else  alert("V is not in the array")
+    }
+    checkV(value, arr)
+// displayArray(arr);
+// maxArr(arr)
+    checkDuplication(value, arr);
+</script>
+
+<h3>Bài 7</h3>
+<script>
+    let arr = []
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    inputArray(arr);
+    let value = +prompt("Nhập số V vào đây: ")
+    function checkDuplication(value, arr) {
+        for (let i = 0; i < arr.length; i ++){
+            if (arr[i] == value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    function deleteAllArray(value, arr) {
+        let index = checkDuplication(value, arr)
+        while (index>= 0) {
+            for (let i =0; i<arr.length;i++) {
+                arr[i] =arr[i+1];
+            }
+            arr.length -= 1;
+            index = checkDuplication(value,arr);
+        }
+    }
+    // function checkV(value, arr) {
+    //     if (checkDuplication(value, arr)) {
+    //         alert("V is in the array")
+    //     } else  alert("V is not in the array")
+    // }
+    // checkV(value, arr)
+    checkDuplication(value, arr);
+    deleteAllArray(value,arr);
+    document.write("Mảng sau khi đã xóa các phần tử trùng" + arr.join('-') +arr.length)
+</script>
+
+<h3>Bài 8</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function displayArray(a){
+        for (let i = 0; i <a.length; i ++){
+            document.write( a[i] + " ")
+        }
+    }
+    function sortArray(a){
+        let temp = 0;
+        for (let i=0; i<a.length; i ++){
+            for (let j=i+1; j<a.length; j++) {
+                if (a[i] < a[j]){
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] =temp;
+                }
+            }
+        }return a;
+    }
+    let arr = [];
+    inputArray(arr);
+    displayArray(arr);
+    sortArray(arr);
+    document.write(sortArray(arr))
+</script>
+<h3>Bài 9</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function displayArray(a){
+        for (let i = 0; i <a.length; i ++){
+            document.write( a[i] + " ")
+        }
+    }
+
+    function gopArr(a, b, c) {
+        for (let i=0; i < a.length; i++) {
+            c[i] = a[i];
+        }
+        for (let i=0; i < b.length; i++) {
+            c[i+a.length] = b[i];
+        }
+        return c;
+    }
+    // function gop(arrA) {
+    //     for (let i =0; i<arrA.length; i++){
+    //         arrC[i] = arrA[i]
+    //     }
+    // }
+    // function gop(arrB) {
+    //     for (let i =0; i<arrB.length; i++){
+    //        arrC[i]  =  arrB[i+arrA.length]
+    //     }
+    // }
+    let arrA= []
+    let arrB= []
+
+    inputArray(arrA)
+    document.write("Mảng A là: [" +arrA.join(",") +"]")
+    inputArray(arrB)
+    document.write("Mảng B là: [" +arrB.join(",") +"]")
+    let arrC = []
+    //gopArr(arrA, arrB, arrC);
+    document.write(gopArr(arrB, arrA, arrC));
+    //gop(arrC)
+    document.write("Mảng C là: [" +arrC.join(",") +"]")
+</script>
 </body>
 </html>
