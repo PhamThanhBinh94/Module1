@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Bài tập- Luyện tập vòng lặp 02</title>
 </head>
-<body><!--
+<body>
 <h3>Bài 1</h3>
 <script>
     let fibonacci1 = 1
@@ -35,7 +35,7 @@
     }
 document.write(n + "!=" + giaithua);
 
-</script>-->
+</script>
 <h3>Bài 3.1</h3>
 <script>
     for (i=0; i<5; i++) {
@@ -72,24 +72,60 @@ document.write(n + "!=" + giaithua);
 </script>
 <h3>Bài 4</h3>
 <script>
-    // for (j=0;j<20;j++){document.write("*")
-    // }
-    // for (j=0;j<5;j++){document.write("*" + "<br>")
-    // }
-    // for (j=0;j<20;j++){document.write("*")}
-    // for (j=0;j<5;j++){document.write("*" + "<br>")
-    // }
-
+    for (i=0;i<40;i++){
+            document.write("*")
+    }
+    document.write("<br>")
+        for (i=1;i<10;i++) {
+            for (j=0;j<1; j++){document.write("*")
+            }
+            for (j=0;j<38;j++){document.write("&nbsp;&nbsp;")
+            }
+            for (j=0;j<1; j++){document.write("*")
+            }
+            document.write("<br>")
+        }
+    for (i=0;i<40;i++) {
+        document.write("*")
+    }
 </script>
+
 <h3>Bài 6</h3>
 <script>
-    for (i=0; i< 3; i++) {
-        for (j = 0; j<3-i;j++){
-            document.write("&nbsp;&nbsp;")
-        }
-        for (j = 0; j<3-i;j++){
+    document.write("&nbsp;")
+    for (i=0; i< 2; i++) {
+        for (j = 0; j<2;j++){
             document.write("*")
         }
+        for (j = 0; j<4;j++){
+            document.write("&nbsp;&nbsp;")
+        }
+    }
+    document.write("<br>")
+    for (i=0; i< 2; i++) {
+        for (j = 0; j<4;j++){
+            document.write("*")
+        }
+        for (j = 0; j<1;j++){
+            document.write("&nbsp;&nbsp;")
+        }
+    }
+    document.write("<br>")
+    // for (i=0; i< 8; i++) {
+    //     for (j = 0; j < 4; j++) {
+    //         document.write("&nbsp;&nbsp;")
+    //     }
+    //     for (j = 0; j < 1; j++) {
+    //         document.write("*")
+    //     }
+    //     document.write("<br>")
+    // }
+    for (i=8; i >=1; i--) {
+        for (j=0;j<=(8-i); j++){document.write("&nbsp;")
+        }
+        for (j=0;j< i ;j++){document.write("*")
+        }
+        document.write("<br>");
     }
 </script>
 </body>
