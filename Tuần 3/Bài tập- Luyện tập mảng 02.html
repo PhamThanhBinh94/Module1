@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Luyện tập mảng 02</title>
+</head>
+<body>
+<!--
+<h3> Bài 1</h3>
+<script>
+    var a = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]];
+
+    for (var i in a)
+    {
+        console.log("row " + i);
+        for (var j in a[i])
+        {
+            console.log(" " + a[i][j]);
+        }
+    }
+</script>
+
+<h3> Bài 2</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function displayArray(a){
+        for (let i = 0; i <arr.length; i ++){
+            document.write(a[i] +" ")
+        }
+    }
+    function sortArray(a){
+        let first =0
+        let last =a.length-1
+        while (first<last){
+            let b = a[first];
+            a[first] = a[last];
+            a[last] = b;
+            first++;
+            last--;
+        } return a
+    }
+    let arr = []
+    inputArray(arr)
+    displayArray(arr)
+    sortArray(arr)
+    document.write("Dãy đảo ngược của mảng arr là: " + arr)
+</script>
+<h3> Bài 3</h3>
+<script>
+    function inputArray(a) {
+        let sizeArr;
+        do {
+            sizeArr = +prompt("Nhập kích thước mảng: ");
+        } while (sizeArr <= 0);
+
+        for (let i=0;i <sizeArr;i ++){
+            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
+        }
+    }
+    function displayArray(a){
+        let so = [0,1,2,3,4,5,6,7,8,9]
+        let count = 0
+        for (let j = 0; j <a.length; j++ ){
+            if (so.indexOf(a[j]) >=0 ){
+            document.write("Ký tự " +a[j] +" là ký tự thứ " + j +"<br>")
+                count++
+            }
+        } document.write("Có" +count)
+    }
+    let arr = []
+    inputArray(arr)
+    displayArray(arr)
+
+</script>
+<h3> Bài 4</h3>
+<script>
+    let count = 1
+    let chuoi = "Khai báo mảng";
+    function checkString(a) {
+        for (let i =0; i<a.length; i++){
+            if(a[i] == ' ') {
+                count++
+            }
+        }
+    }
+    checkString(chuoi)
+    document.write("Số từ trong chuỗi là: " + count)
+</script>
+<h3> Bài 5</h3>
+<script>
+    let chuoi1 = prompt("Chuỗi 1 là: ")
+    let chuoi2 = prompt("Chuỗi 2 là: ")
+    function checkString(a,b) {
+    if (a.length == b.length){
+    for (let i=0; i<a.length ; i ++ ){
+            if (a[i] == b[i]){
+                document.write("2 chuỗi trên giống nhau: ")
+                break
+            }
+        }
+    } else document.write("2 chuỗi trên không giống nhau: ")
+    }
+    checkString(chuoi1,chuoi2)
+</script>-->
+<h3> Bài 6</h3>
+<script>
+function inputArray(a) {
+let sizeArr;
+do {
+sizeArr = +prompt("Nhập kích thước mảng: ");
+} while (sizeArr <= 0);
+
+for (let i=0;i <sizeArr;i ++){
+a[i] = prompt("Nhập phần tử thứ "+i+"  :");
+}
+}
+function displayArray(a){
+    for (let i = 0; i <arr.length; i ++){
+        document.write(a[i] +" ")
+    }
+}
+function changeCharacters(a){
+    for (let i=0; i<a.length;i ++){
+        if (a[i] = '-'){
+            a[i] = '_';
+        };
+    }
+}
+
+let arr= [];
+inputArray(arr)
+displayArray(arr)
+document.write(" Mảng hiện tại là [" + arr + "]");
+changeCharacters(arr)
+    document.write(" Mảng mới là [" + arr + "]");
+</script>
+</body>
+</html>

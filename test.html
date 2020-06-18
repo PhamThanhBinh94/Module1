@@ -2,71 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Luyện tập mảng 2</title>
 </head>
 <body>
+<h3>Bài 6:</h3>
+<p>Nhập mảng kí tự:
+    <input type="text" id="iptChar"/>
+    <input type="button" value="Nhập kí tự" onclick="iptArray();">
+    <input type="button" value="Đổi kí tự" onclick="changeChar();">
+</p>
+<div id="result6a"></div>
+<div id="result6b"></div>
 <script>
-    function inputArray(a) {
-        let sizeArr;
-        do {
-            sizeArr = +prompt("Nhập kích thước mảng: ");
-        } while (sizeArr <= 0);
-
-        for (let i=0;i <sizeArr;i ++){
-            a[i] = +prompt("Nhập phần tử thứ "+i+"  :");
-        }
-    }
-    function display1(a){
-        for (let i = 0; i <arr.length; i ++){
-            document.write(a[i] +" ")
-        }
-    }
-
-    function timkiem(value, a) {
-        for (let i=0; i < a.length; i++) {
-            if (a[i] == value) {
-                return true
-            }
-        } return false
-
-        /*if (a.indexOf(value) !== -1) {
-            return true;
+    let my_array_6 = [];
+    function iptArray() {
+        let new_Char = document.getElementById('iptChar').value;
+        if ((new_Char.length == 0) || (new_Char.length > 1)) {
+            alert('Nhập lại kí tự');
+            new_Char = '1';
         } else {
-            return false;
-        }*/
-    }
-    function xoaDautien(value, a) {
-        if (timkiem(value, a)) {
-            for (let i=0;i< a.length; i ++){
-                if (a[i] == value) {
-                    for (let j = i; j < a.length; j++) {
-                        a[j] = a[j+1];
-                    }
-                    let new_arr = [];
-                    for (let j=0;j<a.length-1; j++){
-                        new_arr[j] = a[j]
-                    }
-                    a = new_arr;
-                }
-            }
-            document.write('<br>'+a)
-            //let i = a.indexOf(value);
-            // for (let j = i; j < a.length; j++) {
-            //     a[j] = a[j+1];
-            // }
-            // a = a.splice(0, a.length -1);
-            // document.write('<br>'+a);
+            my_array_6[my_array_6.length] = new_Char;
+            document.getElementById('result6a').innerHTML = 'Mảng của bạn là [' + my_array_6 + ']';
         }
     }
-    let arr =[]
-    inputArray(arr)
-    display1(arr)
-    let value = +prompt('Nhập giá trị cần tim: ');
-    timkiem(value, arr)
-    xoaDautien(value, arr)
-
-
-
+    function changeChar() {
+        for (let i=0; i < my_array_6.length; i++) {
+            if (my_array_6[i] == '-') {
+                my_array_6[i] = '_';
+            }
+        }
+        document.getElementById('result6b').innerHTML = 'Mảng mới của bạn là [' + my_array_6 + ']';
+    }
 </script>
 </body>
 </html>
