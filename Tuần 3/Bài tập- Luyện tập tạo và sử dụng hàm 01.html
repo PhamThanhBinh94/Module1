@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Luyện tập tạo và sử dụng hàm 01</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<input type="button" id="display" onclick="alertMessage()" value="Hiển thị"/>
+<script>
+    function alertMessage() {
+        alert("Xin chao")
+    }
+</script>
+<h3>Bài 2</h3>
+<input type="button" id="display1" onclick="receiveValue()" value="Hiển thị"/>
+<script>
+    function receiveValue() {
+        let argument = +prompt("Nhập đối số đó vào đây: ")
+        argument +=1
+        document.write("ĐỐi số mới là: " + argument)
+    }
+</script>
+<h3>Bài 3</h3>
+<input type="button" id="display2" onclick="compareNumber()" value="Hiển thị"/>
+<script>
+    function compareNumber() {
+        let a = +prompt("Tham số 1 là: ")
+        let b = +prompt("Tham số 2 là: ")
+        if (a > b) {
+            alert("a >b ")
+        } else document.write("Tổng của 2 số là: " + sum(a,b))
+    }
+        function sum(a,b) {
+            return (a+b)
+        }
+    compareNumber()
+</script>
+<h3>Bài 4</h3>
+<script>
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+
+    }
+    result = 0;
+    alert(result)
+    result = addNumbers();
+    alert(result)
+</script>
+<h3>Bài 5</h3>
+<!--<input id="search" type="text"/>-->
+<!--<input id="search1" type="button" value="Search" onclick="searchConstellation()"/>-->
+<p>Tên chòm sao tương ứng với ngôi sao đó là: <div id="result"></div></p>
+<script>
+    let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" , "Regulus"];
+    let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    let constellation = prompt("Tên của ngôi sao là: ")
+    function searchConstellation() {
+        for (let i =0; i < arr1.length; i++) {
+             if(arr1[i] == constellation) {
+                constellation = arr2[i];
+                document.getElementById("result").innerHTML = constellation;
+                break;
+            } else document.getElementById("result").innerHTML = "Không có chòm sao nào trùng khớp";
+        }
+    }
+    searchConstellation()
+</script>
+</body>
+</html>
