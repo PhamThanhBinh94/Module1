@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Luyện tập và sử dụng hàm 02</title>
+</head>
+<body>
+<h3>Bài 1</h3>
+<p> Giá trị là: <input id="number" type="text" placeholder="Nhập giá trị vào đây"/></p>
+<p> Bình phương của giá trị trên là: <div id="result1"></div> <input id="calculate" type="button" value="Hiển thị giá trị" onclick="squareNumbers()"></p>
+<script>
+
+    function squareNumbers(a) {
+        return(a*a)
+    }
+let arr =[]
+    arr = +prompt("Nhập số: ")
+    document.getElementById("result1").innerHTML = squareNumbers(arr);
+</script>
+<h3>Bài 2</h3>
+<p> Bán kính là: <input id="number" type="text" placeholder="Nhập giá trị vào đây"/><input id="calculate1" type="button" value="Hiển thị giá trị" onclick="acreageCircumference()"></p>
+<p> Diện tích của đường tròn là: <div id="result1"></div> </p>
+<p> Chu vi của đường tròn là: <div id="result2"></div></p>
+
+<script>
+    function acreageCircumference() {
+        let radius = document.getElementById("number").value;
+        let circleArea = 3.14*radius*radius;
+        document.getElementById("result1").innerHTML = circleArea;
+        let circumference = 2*3.14*radius;
+        document.getElementById("result2").innerHTML = circumference;
+    }
+</script>
+<h3>Bài 3</h3>
+<p> Giá trị là: <input id="number" type="text" placeholder="Nhập giá trị vào đây" oninput="displayFactorial(num)"/></p>
+<p> Giai thừa là: <div id="result1"></div> </p>
+<input id="calculate" type="button" value="Hiển thị giá trị" >
+<script>
+    function factorial(a) {
+        if (a==2)
+            return 2
+        return a* factorial(a-1);
+    }
+    let num = +prompt("Nhập số: ")
+    document.getElementById("result1").innerHTML =  factorial(num);
+    // function displayFactorial(a) {
+    // let num = document.getElementById("number").value;
+    // document.getElementById("result1").innerHTML = factorial(num);
+    // }
+</script>
+<h3>Bài 4</h3>
+<input id="number" type="button" value="Nhập ký tự" onclick="isNum()" />
+<p> Kết luận:  <div id="result"></div> </p>
+<script>
+    let arr= []
+    function checkNum(a) {
+        let num = "0123456789"
+            if (num.indexOf(a) >=0) {
+                return true;
+            }
+        return false;
+    }
+    function isNum() {
+        let character = prompt("Nhập ký tự")
+        if (character.length != 1) {
+            alert("Nhập lại")
+        } else {
+            if (checkNum(character)) {
+                document.getElementById("result").innerHTML = character + "là ký tự số";
+            } else document.getElementById("result").innerHTML = character + " không phải là ký tự số";
+        }
+    }
+</script>
+<h3>Bài 5</h3>
+<input id="number" type="button" value="Start" onclick="inputInteger()" />
+<p> Số nguyên có giá trị nhỏ nhất là:  <div id="result"></div> </p>
+<script>
+    function inputInteger() {
+    let so1 = +prompt("Nhập số nguyên thứ nhất: ")
+    let so2 = +prompt("Nhập số nguyên thứ hai: ")
+    let so3 = +prompt("Nhập số nguyên thứ ba: ")
+    document.getElementById("result").innerHTML = compareInteger(so1,so2,so3)
+    }
+    function compareInteger(a,b,c) {
+        let min = a
+        if (a > c) {
+            min = c
+        } else if (a >b){
+            min = b
+        } return min
+    }
+</script>
+<h3>Bài 6</h3>
+<input id="number6" type="button" value="Start" onclick="inputInteger()" />
+<p> Kết quả là:  <div id="result6"></div> </p>
+<script>
+    function isInteger(a) {
+        if (a%1==0 && a >0) {return true}
+        return false
+    }
+function inputInteger() {
+    let a =+prompt("Nhập số")
+    if (isInteger(a)){
+        document.getElementById("result6").innerHTML = a + " là số nguyên dương";
+    } else document.getElementById("result6").innerHTML = a + " không phải là số nguyên dương";
+}
+</script>
+<h3>Bài 7</h3>
+<input id="number6" type="button" value="Start" onclick="inputNumber()" />
+<p><div id="result7"></div> </p>
+<p><div id="result71"></div> </p>
+<script>
+    function inputNumber() {
+        let so1 = +prompt("Nhập số thứ nhất: ");
+        let so2 = +prompt("Nhập số thứ hai : ");
+        document.getElementById("result7").innerHTML = "Lúc ban đầu nhập vào: " + so1 +',' +so2;
+        document.getElementById("result71").innerHTML = "Sau khi đổi chỗ: " + convertNumber(so1,so2);
+
+    }
+    function convertNumber(a,b) {
+        let arr = [a,b];
+        let temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+        return arr
+    }
+</script>
+<h3>Bài 8</h3>
+<input id="number8" type="button" value="Start" onclick="inputNumber()" />
+<p><div id="result8"></div> </p>
+<p><div id="result81"></div> </p>
+<script>
+
+    function inputNumber(){
+        let arrSize
+        do {
+            arrSize = +prompt("Nhập kích thước mảng");
+        }
+        while (arrSize <= 0);
+        let arr = [];
+        for (let i=0; i< arrSize ; i++ ) {
+            arr[i] = +prompt("Nhập phần tử thứ: " + i);
+        }
+        document.getElementById("result8").innerHTML = "Mảng khi nhập vào lúc đầu:" + arr;
+        document.getElementById("result81").innerHTML = "Mảng sau khi đảo ngược:" + convertNumber(arr);
+    }
+    function convertNumber(a) {
+        for (i=0,j=a.length-1; i<j;i++, j --){
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+        return a
+    }
+</script>
+<h3>Bài 9</h3>
+<input id="number9" type="button" value="Start" onclick="isNum()"/>
+<p><div id="result9"></div> </p>
+<p><div id="result91"></div> </p>
+<input id="number91" type="button" value="Search" onclick="characterNeedCheck()"/>
+<script>
+    let arr= []
+    // function checkNum(a) {
+    //     let num = "0123456789"
+    //         if (num.indexOf(a) >=0) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
+    function isNum() {
+        let character = prompt("Nhập ký tự");
+        if (character.length != 1) {
+            alert("Nhập lại")
+        } else arr += character;
+        document.getElementById("result9").innerHTML = arr;
+    }
+    function characterNeedCheck() {
+        let newCharacter = prompt("Nhập ký tự cần tìm");
+        while (newCharacter.length != 1){
+            newCharacter = prompt("Nhập lại ký tự");
+        }
+        document.getElementById("result91").innerHTML = "Số lần xuất hiện của ký tự là " + checkCharacter(newCharacter,arr)
+    }
+    function checkCharacter(a, arr) {
+        let count = 0;
+        for (let i=0; i<arr.length;i++){
+            if (arr[i] === a) {
+                count++
+            }
+        }
+        return count;
+    }
+
+
+
+
+    // function checkCharacter() {
+    //     let newCharacter = 6;
+    //     if
+    // }
+</script>
+</body>
+</html>
