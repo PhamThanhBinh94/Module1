@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập - Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<div>
+    <div id="result0"></div>
+    <div id="result1"></div>
+    <input type="button" value="Thay đổi kích thước" onclick="changeRectangle();"/>
+</div>
+<canvas id="myCanvas" width="1000px" height="500px" style="border: 1px solid #d3d3d3;"/>
+
+<script>
+    function Rectangle (width,height) {
+        this.width = width;
+        this.height = height;
+        this.getWidth = function () {
+            return this.width;
+        }
+        this.getHeight = function () {
+            return this.height;
+        }
+        this.getAcreage = function () {
+            return this.width * this.height
+        }
+        this.getPerimeter = function () {
+            return 2*(this.width + this.height)
+        }
+        this.setWidth = function (width) {
+            this.width = width;
+        }
+        this.setHeight = function (height) {
+            this.height = height;
+        }
+        this.displayRectangle = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.fillStyle = "FF0030";
+            ctx.fillRect(0,0,this.getWidth(),this.getHeight())
+        }
+    }
+    function changeRectangle() {
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let newWidth = +prompt("Nhập chiều rộng mới vào đây: ")
+        let newHeight = +prompt("Nhập chiều dài mới vào đây: ")
+        newRectangle.setWidth(newWidth);
+        newRectangle.setHeight(newHeight);
+        let myPerimeter = newRectangle.getPerimeter()
+        let myArea = newRectangle.getAcreage()
+        document.getElementById("result0").innerHTML = "Diện tích là:" + myArea;
+        document.getElementById("result1").innerHTML = "Chu vi là:" + myPerimeter;
+        ctx.clearRect(0,0,document.getElementById("myCanvas").width,document.getElementById("myCanvas").height)
+        newRectangle.displayRectangle()
+    }
+    let newRectangle = new Rectangle(200,100);
+    let myPerimeter = newRectangle.getPerimeter()
+    let myArea = newRectangle.getAcreage()
+    document.getElementById("result0").innerHTML = "Diện tích là:" + myArea;
+    document.getElementById("result1").innerHTML = "Chu vi là:" + myPerimeter;
+    newRectangle.displayRectangle()
+</script>
+</body>
+</html>
