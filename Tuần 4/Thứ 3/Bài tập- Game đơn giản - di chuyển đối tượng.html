@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập- Game đơn giản - di chuyển đối tượng</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+    function Hero(image, top, left, right,size){
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.right = right;
+        this.size = size;
+        this.getHeroElement = function(){
+            return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="' + this.image +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+        }
+
+        this.moveRight = function(){
+            this.left += 200;
+            console.log('ok: ' + this.left + this.right);
+        }
+
+    }
+
+    var hero = new Hero('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcThhYd07nnHRzahQ7oYTohUrRccHP5rhmMngM8PbFN5GVXhT5i6&usqp=CAU', 20, 30, 30, 200);
+
+    function checkLimit(){
+        if(){
+
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 500)
+    }
+
+    start();
+</script>
+</body>
+</html>

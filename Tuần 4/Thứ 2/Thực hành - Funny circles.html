@@ -11,6 +11,25 @@
         this.x = x;
         this.y = y;
         this.radius = radius;
+        this.speedX = 5;
+        this.speedY = 5;
+
+    this.speed = function() {
+        this.x += this.speedX
+        this.y += this.speedY
+        this.left = this.x - this.radius;
+        this.right = this.x + this.radius;
+        this.top = this.y + this.radius;
+        this.bottom = this.y - this.radius;
+    }
+    this.checkLimit = function() {
+        if (this.left < 0 || this.right > document.getElementById("myCanvas").width){
+            this.speedX = -this.speedX
+        }
+        if (this.top < 0 || this.bottom > document.getElementById("myCanvas").height){
+            this.speedY = -this.speedY
+        }
+    }
     }
     function getRandomHex() {
         return Math.floor(Math.random()*255);
@@ -32,21 +51,18 @@
         ctx.arc(circle.x, circle.y,circle.radius,0,2*Math.PI);
         ctx.fillStyle = color;
         ctx.fill();
-        let increaseDecrease = 1;
-        let pos = 0;
-        let run = setInterval(ballRun,3)
+        setInterval(function () {
+            ctx.clearRect(0,0,document.getElementById("myCanvas").width,document.getElementById("myCanvas").height)
+            circle.speed();
+            circle.checkLimit()
+            ctx.beginPath();
+            ctx.arc(circle.x, circle.y,circle.radius,0,2*Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();},30);
 
-        function  ballRun() {
-            if ((pos > 150) || (pos < 0)){
-                increaseDecrease = (-increaseDecrease);
-            }
-        }
-        pos += increaseDecrease;
-        ctx.style.left = pos +"px";
     }
-
     function createMultipleCircle() {
-            for(let i=0; i <3; i ++){
+            for(let i=0; i <1; i ++){
                 createCircle();
             }
     }
