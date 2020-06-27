@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <!--<script src="CaseStudyModule1.js"></script>-->
+</head>
+<body onload="docReady();">
+    <canvas id="myCanvas" width="1200px" height="700px" style="border:1px solid #d3d3d3;"/>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        let ctx = canvas.getContext("2d");
+        let Ball = function (x,y,radius,color){
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+            this.speedX = 5;
+            this.speedY = 5;
+
+            this.setBar = function (object) {
+                this.barLine = object;
+            }
+
+            this.drawBall = function () {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y,this.radius,0,2*Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+            }
+
+            this.moveBall = function () {
+                ctx.clearRect(this.x-this.radius, this.y - this.radius, 2*this.radius, 2*this.radius)
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.left = this.x - this.radius;
+                this.right = this.x + this.radius;
+                this.top = this.y - this.radius;
+                this.bottom = this.y + this.radius;
+                this.drawBall();
+            }
+
+            this.checkLimit = function () {
+                if (this.left < 0 || this.right > canvas.width) {
+                    this.speedX = -this.speedX
+                }
+                if (this.top < 0) {
+                    this.speedY = -this.speedY
+                }
+            }
+
+            this.checkBar = function () {
+                if(this.y + this.radius == this.barLine.top
+                    && this.x >= this.barLine.left
+                    && this.x <= this.barLine.left + this.barLine.width) {
+                    this.speedY = -this.speedY
+                }
+            }
+        }
+        // let Circle = function (x,y,radius) {
+        //      this.x = x;
+        //      this.y = y;
+        //      this.radius = radius;
+        //      this.speedX = 5;
+        //      this.speedY = 5;
+        //
+        //      this.speed = function () {
+        //          this.x += this.speedX;
+        //          this.y += this.speedY;
+        //          this.left = this.x - this.radius;
+        //          this.right = this.x + this.radius;
+        //          this.top = this.y + this.radius;
+        //          this.bottom = this.y - this.radius;
+        //      };
+        //
+        //      this.checkLimit = function () {
+        //          if (this.left < 0 || this.right > document.getElementById("myCanvas").width) {
+        //              this.speedX = -this.speedX
+        //          }
+        //          if (this.top < 0 || this.bottom > document.getElementById("myCanvas").height) {
+        //              this.speedY = -this.speedY
+        //          }
+        //      }
+        //  }
+        //     function getRandomHex() {
+        //         return Math.floor(Math.random()*255)
+        //     }
+        //     function getRandomColor() {
+        //         let red = getRandomHex();
+        //         let green = getRandomHex();
+        //         let blue = getRandomHex();
+        //         return "rgb(" +red + "," + blue + "," + green + ")";
+        //     }
+        //  function createCircle() {
+        //      let radius = Math.floor(Math.random()*80);
+        //      let color = getRandomColor();
+        //      let x = Math.random() *window.innerWidth;
+        //      let y = Math.random() *window.innerHeight;
+        //      let circle = new Circle(x,y,radius);
+        //      ctx.beginPath();
+        //      ctx.arc(circle.x, circle.y,circle.radius,0,2*Math.PI);
+        //      ctx.fillStyle = color;
+        //      ctx.fill();
+        //      setInterval(function () {
+        //          ctx.clearRect(0,0,document.getElementById("myCanvas").width,document.getElementById("myCanvas").height)
+        //          circle.speed();
+        //          circle.checkLimit();
+        //          ctx.beginPath();
+        //          ctx.arc(circle.x, circle.y,circle.radius,0,2*Math.PI);
+        //          ctx.fillStyle = color;
+        //          ctx.fill();},30);
+        //  }
+        // createCircle()
+
+        let Bar = function (left,top,width,height,color) {
+            this.left = left;
+            this.top = top;
+            this.width = width;
+            this.height = height;
+            this.color = color;
+            this.speedX = 20;
+            this.moveLeft = function () {
+                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2)
+                this.left -= this.speedX;
+                this.drawBar()
+            }
+            this.moveRight = function () {
+                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2)
+                this.left += this.speedX;
+                this.drawBar()
+            }
+            this.drawBar = function () {
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.left, this.top, this.width, this.height);
+            }
+        }
+        function moveSelection(evt){
+            switch (evt.keyCode) {
+                case 37:
+                    leftArrowPressed();
+                    break;
+                case 39:
+                    rightArrowPressed();
+                    break;
+            }
+        }
+        function leftArrowPressed() {
+            bar.moveLeft()
+        }
+        function rightArrowPressed() {
+            bar.moveRight()
+        }
+        function docReady(){
+            window.addEventListener('keydown', moveSelection);
+        }
+        // let Brick = function () {
+        //     this.width = width;
+        //     this.height = height;
+        //
+        //     this.drawBrick = function (){
+        //
+        //     }
+        // }
+
+        let bar = new Bar (500,650,100,25,"blue");
+        bar.drawBar();
+        let bar_2 = new Bar(800,550,100,25,'red');
+        bar_2.drawBar();
+        let ball = new Ball(100,100,30,"green")
+        ball.drawBall();
+        ball.setBar(bar);
+        setInterval(function () {
+            ball.moveBall();
+            bar.drawBar();
+            bar_2.drawBar();
+            ball.checkLimit();
+            ball.checkBar();
+        },20)
+    </script>
+</body>
+</html>

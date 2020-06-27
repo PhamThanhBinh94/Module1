@@ -7,8 +7,23 @@
 <body>
 <div id="game"></div>
 <script>
-let x = [1,2,4]
-document.write(x)
+    let ar = [4,4,1,4]
+    function birthdayCakeCandles(ar) {
+        let max = ar[0]
+        for(let i=0;i<ar.length;i++){
+            if(max <ar[i]){
+                max = ar[i]
+            }
+        }
+        let count=0
+        for(let j=0;j<ar.length;j++){
+            if(max == ar[j]){
+                count++
+            }
+        }
+        console.log(count);
+    }
+    birthdayCakeCandles(ar)
 </script>
 </body>
 </html>

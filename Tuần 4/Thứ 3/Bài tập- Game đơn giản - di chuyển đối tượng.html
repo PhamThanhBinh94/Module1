@@ -7,11 +7,10 @@
 <body>
 <div id="game"></div>
 <script>
-    function Hero(image, top, left, right,size){
+    function Hero(image, top, left,size){
         this.image = image;
         this.top = top;
         this.left = left;
-        this.right = right;
         this.size = size;
         this.getHeroElement = function(){
             return '<img width="'+ this.size + '"' +
@@ -19,22 +18,21 @@
                 ' src="' + this.image +'"' +
                 ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
         }
-
         this.moveRight = function(){
             this.left += 200;
             console.log('ok: ' + this.left + this.right);
         }
-
+        // this.checkLimit = function () {
+        //     if ()
+        // }
     }
-
-    var hero = new Hero('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcThhYd07nnHRzahQ7oYTohUrRccHP5rhmMngM8PbFN5GVXhT5i6&usqp=CAU', 20, 30, 30, 200);
-
-    function checkLimit(){
-        if(){
-
+    let hero = new Hero('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcThhYd07nnHRzahQ7oYTohUrRccHP5rhmMngM8PbFN5GVXhT5i6&usqp=CAU', 20, 30, 100);
+    function start () {
+        if (hero.left < window.innerWidth - hero.size) {
+            hero.moveRight();
         }
-        document.getElementById('game').innerHTML = hero.getHeroElement();
-        setTimeout(start, 500)
+    document.getElementById('game').innerHTML = hero.getHeroElement();
+        setInterval(start , 1000)
     }
 
     start();

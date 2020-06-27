@@ -47,8 +47,8 @@
         let newHeight = +prompt("Nhập chiều dài mới vào đây: ")
         newRectangle.setWidth(newWidth);
         newRectangle.setHeight(newHeight);
-        let myPerimeter = newRectangle.getPerimeter()
-        let myArea = newRectangle.getAcreage()
+        let myPerimeter = newRectangle.getPerimeter();
+        let myArea = newRectangle.getAcreage();
         document.getElementById("result0").innerHTML = "Diện tích là:" + myArea;
         document.getElementById("result1").innerHTML = "Chu vi là:" + myPerimeter;
         ctx.clearRect(0,0,document.getElementById("myCanvas").width,document.getElementById("myCanvas").height)
