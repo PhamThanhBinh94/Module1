@@ -22,6 +22,10 @@
                 this.barLine = object;
             }
 
+            this.setBrick = function (object) {
+                this.brickLine =object;
+            }
+
             this.drawBall = function () {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y,this.radius,0,2*Math.PI);
@@ -44,73 +48,39 @@
                 if (this.left < 0 || this.right > canvas.width) {
                     this.speedX = -this.speedX
                 }
-                if (this.top < 0) {
+                if (this.top < 0 || this.bottom > canvas.height) {
                     this.speedY = -this.speedY
                 }
             }
 
             this.checkBar = function () {
-                if(this.y + this.radius == this.barLine.top
+                if((this.y + this.radius == this.barLine.top || this.y -this.radius == this.barLine.top +this.barLine.height)
                     && this.x >= this.barLine.left
-                    && this.x <= this.barLine.left + this.barLine.width) {
+                    && this.x <= this.barLine.left + this.barLine.width)
+                {
                     this.speedY = -this.speedY
                 }
+                if ((this.x + this.radius == this.barLine.left || this.x-this.radius == this.barLine.left +this.barLine.width )
+                    && (this.y >= this.barLine.top
+                    && this.y <= this.barLine.top + this.barLine.height)){
+                    this.speedX = -this.speedX
+                }
             }
+            this.checkBrick = function () {
+                if((this.y + this.radius == this.brickLine.top || this.y -this.radius == this.brickLine.top +this.brickLine.height)
+                    && this.x >= this.brickLine.left
+                    && this.x <= this.brickLine.left + this.brickLine.width)
+                {
+                    this.speedY = -this.speedY
+                }
+                if ((this.x + this.radius == this.brickLine.left || this.x-this.radius == this.brickLine.left +this.brickLine.width )
+                    && (this.y >= this.brickLine.top
+                    && this.y <= this.brickLine.top + this.brickLine.height)){
+                    this.speedX = -this.speedX
+                }
+            }
+
         }
-        // let Circle = function (x,y,radius) {
-        //      this.x = x;
-        //      this.y = y;
-        //      this.radius = radius;
-        //      this.speedX = 5;
-        //      this.speedY = 5;
-        //
-        //      this.speed = function () {
-        //          this.x += this.speedX;
-        //          this.y += this.speedY;
-        //          this.left = this.x - this.radius;
-        //          this.right = this.x + this.radius;
-        //          this.top = this.y + this.radius;
-        //          this.bottom = this.y - this.radius;
-        //      };
-        //
-        //      this.checkLimit = function () {
-        //          if (this.left < 0 || this.right > document.getElementById("myCanvas").width) {
-        //              this.speedX = -this.speedX
-        //          }
-        //          if (this.top < 0 || this.bottom > document.getElementById("myCanvas").height) {
-        //              this.speedY = -this.speedY
-        //          }
-        //      }
-        //  }
-        //     function getRandomHex() {
-        //         return Math.floor(Math.random()*255)
-        //     }
-        //     function getRandomColor() {
-        //         let red = getRandomHex();
-        //         let green = getRandomHex();
-        //         let blue = getRandomHex();
-        //         return "rgb(" +red + "," + blue + "," + green + ")";
-        //     }
-        //  function createCircle() {
-        //      let radius = Math.floor(Math.random()*80);
-        //      let color = getRandomColor();
-        //      let x = Math.random() *window.innerWidth;
-        //      let y = Math.random() *window.innerHeight;
-        //      let circle = new Circle(x,y,radius);
-        //      ctx.beginPath();
-        //      ctx.arc(circle.x, circle.y,circle.radius,0,2*Math.PI);
-        //      ctx.fillStyle = color;
-        //      ctx.fill();
-        //      setInterval(function () {
-        //          ctx.clearRect(0,0,document.getElementById("myCanvas").width,document.getElementById("myCanvas").height)
-        //          circle.speed();
-        //          circle.checkLimit();
-        //          ctx.beginPath();
-        //          ctx.arc(circle.x, circle.y,circle.radius,0,2*Math.PI);
-        //          ctx.fillStyle = color;
-        //          ctx.fill();},30);
-        //  }
-        // createCircle()
 
         let Bar = function (left,top,width,height,color) {
             this.left = left;
@@ -120,12 +90,12 @@
             this.color = color;
             this.speedX = 20;
             this.moveLeft = function () {
-                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2)
+                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2);
                 this.left -= this.speedX;
                 this.drawBar()
             }
             this.moveRight = function () {
-                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2)
+                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2);
                 this.left += this.speedX;
                 this.drawBar()
             }
@@ -153,28 +123,96 @@
         function docReady(){
             window.addEventListener('keydown', moveSelection);
         }
-        // let Brick = function () {
-        //     this.width = width;
-        //     this.height = height;
-        //
-        //     this.drawBrick = function (){
-        //
-        //     }
-        // }
 
-        let bar = new Bar (500,650,100,25,"blue");
+
+
+
+
+        let Brick = function (x,y,width,height,color) {
+            let _thisRef = this;
+            this.left = x;
+            this.top  = y;
+            this.getX = function () {
+                return this.left
+            }
+            this.getY = function () {
+                return this.top
+            }
+
+            this.width = width;
+            this.height = height;
+            this.color = color;
+            this.setBall =function (object) {
+                this.ball = object
+            }
+            this.drawBrick = function (){
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.left, this.top, this.width, this.height);
+            }
+
+            this.disappear = function () {
+                ctx.clearRect(this.left, this.top, this.width, this.height);
+            }
+            this.setStatus = function () {
+                this.status = 'touched';
+            }
+
+            this.isTouched = function () {
+                if ((((this.ball.x >= _thisRef.getX()) && (this.ball.x <= _thisRef.getX() + this.width))
+                    && ((this.ball.bottom == this.top)
+                        || (this.ball.top == (this.top + this.height))))
+                         ||
+                    (((this.ball.y >= _thisRef.getY()) && (this.ball.y <= _thisRef.getY() + this.height))
+                        && ((this.ball.right == this.left)
+                            || (this.ball.left == (this.left + this.width))))
+                )
+                {
+                    return true;
+                }return false;
+            }
+            this.breakBrick = function () {
+                if (this.isTouched()) {
+                    this.setStatus();
+                    this.disappear();
+                }
+            }
+        }
+
+        let bar = new Bar (500,650,200,25,"blue");
         bar.drawBar();
         let bar_2 = new Bar(800,550,100,25,'red');
         bar_2.drawBar();
-        let ball = new Ball(100,100,30,"green")
+        let ball = new Ball(100,100,10,"green")
         ball.drawBall();
         ball.setBar(bar);
+        let brick = new Brick(500,300,600,25,"orange")
+        brick.drawBrick()
+        brick.setBall(ball);
+        ball.setBrick(brick);
+        // let brick_array =[];
+        // function creatBrick() {
+        //     brick_array[brick_array.length] = new Brick((brick_array.length-1)*150 + 200,100,100,25,"orange");
+        //     brick_array[brick_array.length-1].drawBrick();
+        //     brick_array[brick_array.length-1].setBall(ball);
+        // }
+        // for (let i=0; i<5; i++) {
+        //     creatBrick();
+        // }
         setInterval(function () {
             ball.moveBall();
             bar.drawBar();
             bar_2.drawBar();
             ball.checkLimit();
             ball.checkBar();
+
+        },20)
+        let TimeId = setInterval(function () {
+            brick.drawBrick();
+            ball.checkBrick();
+            brick.breakBrick();
+            if (brick.isTouched()) {
+                clearInterval(TimeId)
+            }
         },20)
     </script>
 </body>
