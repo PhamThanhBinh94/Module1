@@ -6,7 +6,8 @@
     <!--<script src="CaseStudyModule1.js"></script>-->
 </head>
 <body onload="docReady();">
-    <canvas id="myCanvas" width="1200px" height="700px" style="border:1px solid #d3d3d3;"/>
+<canvas id="myCanvas" width="900px" height="700px" style="border:1px solid #d3d3d3;"></canvas>
+    <p><input type="button" value="PLAY" onclick="start();"></p>
     <script>
         let canvas = document.getElementById("myCanvas");
         let ctx = canvas.getContext("2d");
@@ -32,9 +33,12 @@
                 ctx.fillStyle = color;
                 ctx.fill();
             }
-
+            this.setBall = function (x,y) {
+                this.x = x;
+                this.y = y;
+            }
             this.moveBall = function () {
-                ctx.clearRect(this.x-this.radius, this.y - this.radius, 2*this.radius, 2*this.radius)
+                ctx.clearRect(this.x-this.radius-5, this.y - this.radius-5, 2*this.radius+10, 2*this.radius+10)
                 this.x += this.speedX;
                 this.y += this.speedY;
                 this.left = this.x - this.radius;
@@ -48,7 +52,7 @@
                 if (this.left < 0 || this.right > canvas.width) {
                     this.speedX = -this.speedX
                 }
-                if (this.top < 0 || this.bottom > canvas.height) {
+                if (this.top < 0 ) {
                     this.speedY = -this.speedY
                 }
             }
@@ -73,13 +77,12 @@
                 {
                     this.speedY = -this.speedY
                 }
-                if ((this.x + this.radius == this.brickLine.left || this.x-this.radius == this.brickLine.left +this.brickLine.width )
-                    && (this.y >= this.brickLine.top
-                    && this.y <= this.brickLine.top + this.brickLine.height)){
-                    this.speedX = -this.speedX
+            }
+            this.checkEndGame = function () {
+                if (this.top >= canvas.height) {
+                    return true
                 }
             }
-
         }
 
         let Bar = function (left,top,width,height,color) {
@@ -90,14 +93,16 @@
             this.color = color;
             this.speedX = 20;
             this.moveLeft = function () {
-                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2);
-                this.left -= this.speedX;
-                this.drawBar()
+                if (this.left > 0){
+                    ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2);
+                    this.left -= this.speedX;
+                    this.drawBar()}
             }
             this.moveRight = function () {
-                ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2);
-                this.left += this.speedX;
-                this.drawBar()
+                if (this.left+this.width < canvas.width){
+                    ctx.clearRect(this.left-1,this.top-1,this.width+2,this.height+2);
+                    this.left += this.speedX;
+                    this.drawBar()}
             }
             this.drawBar = function () {
                 ctx.fillStyle = this.color;
@@ -154,7 +159,7 @@
                 ctx.clearRect(this.left, this.top, this.width, this.height);
             }
             this.setStatus = function () {
-                this.status = 'touched';
+                this.status = 0;
             }
 
             this.isTouched = function () {
@@ -177,43 +182,54 @@
                 }
             }
         }
-
-        let bar = new Bar (500,650,200,25,"blue");
-        bar.drawBar();
-        let bar_2 = new Bar(800,550,100,25,'red');
-        bar_2.drawBar();
-        let ball = new Ball(100,100,10,"green")
-        ball.drawBall();
+        let bar = new Bar (350,650,200,25,"blue");
+        let ball = new Ball(450,600,10,"green")
+        let brick_array =[];
         ball.setBar(bar);
-        let brick = new Brick(500,300,600,25,"orange")
-        brick.drawBrick()
-        brick.setBall(ball);
-        ball.setBrick(brick);
-        // let brick_array =[];
-        // function creatBrick() {
-        //     brick_array[brick_array.length] = new Brick((brick_array.length-1)*150 + 200,100,100,25,"orange");
-        //     brick_array[brick_array.length-1].drawBrick();
-        //     brick_array[brick_array.length-1].setBall(ball);
-        // }
-        // for (let i=0; i<5; i++) {
-        //     creatBrick();
-        // }
-        setInterval(function () {
+        bar.drawBar();
+        ball.drawBall();
+        function creatBrick(x,y) {
+            brick_array[brick_array.length] = new Brick(x,y,100,25,"orange");
+            brick_array[brick_array.length-1].drawBrick();
+            brick_array[brick_array.length-1].setBall(ball);
+        }
+        for (let i=0; i<5; i++) {
+            for (let j = 0; j < 3; j++) {
+                creatBrick(i*150 + 100, j*75 + 100)
+            }
+        }
+        function start() {
+
+        let gameRun = setInterval(function () {
             ball.moveBall();
             bar.drawBar();
-            bar_2.drawBar();
             ball.checkLimit();
             ball.checkBar();
-
-        },20)
-        let TimeId = setInterval(function () {
-            brick.drawBrick();
-            ball.checkBrick();
-            brick.breakBrick();
-            if (brick.isTouched()) {
-                clearInterval(TimeId)
+            if (ball.checkEndGame()) {
+                alert("GAME OVER");
+                clearInterval(gameRun);
             }
-        },20)
+        },15)
+        let gameWin = setInterval(function () {
+            let count=0;
+            for(let i=0; i<brick_array.length ;i ++){
+                if (brick_array[i].status !== 0) {
+                    brick_array[i].drawBrick();
+                    ball.setBrick(brick_array[i]);
+                    ball.checkBrick();
+                    brick_array[i].breakBrick();
+                }
+                if (brick_array[i].status == 0) {
+                    count++;
+                }
+               }
+            if (count == brick_array.length) {
+                alert('WIN');
+                clearInterval(gameWin);
+                clearInterval(gameRun);
+            }
+            },15)
+        }
     </script>
 </body>
 </html>
