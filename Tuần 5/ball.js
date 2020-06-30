@@ -56,7 +56,7 @@ let Ball = function (x,y,radius,color){
             && (this.y >= this.barLine.top
                 && this.y <= this.barLine.top + this.barLine.height)){
             this.speedX = -this.speedX;
-            this.speedY = -this.speedY;
+            // this.speedY = -this.speedY;
         }
 
         if (Math.sqrt(Math.pow(this.x-this.barLine.left,2)+Math.pow(this.y-this.barLine.top,2)) <this.radius) {
@@ -99,7 +99,7 @@ let Ball = function (x,y,radius,color){
         if (Math.sqrt(Math.pow(this.x-this.brickLine.left-this.brickLine.width,2)+Math.pow(this.y-this.brickLine.top-this.brickLine.height),2) <this.radius)
         {
             this.speedX = -this.speedX;
-            this.speedY = -this.speedY;
+            // this.speedY = -this.speedY;
         }
     }
     this.checkEndGame = function () {

@@ -9,8 +9,9 @@
 
 </head>
 <body onload="docReady();">
-<canvas id="myCanvas" width="900px" height="700px" style="border:1px solid #d3d3d3; background-color: lightblue"  ></canvas>
-<p><input type="button" value="PLAY" onclick="start();"></p>
+<canvas id="myCanvas" width="900px" height="700px" style="border:1px solid #d3d3d3; background-color: lightblue"></canvas>
+<p><input type="button" value="PLAY" onclick="start();"> <input type="button" value="RESET" onclick="reset()"/></p>
+
 <script>
     let canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
@@ -49,6 +50,7 @@
                     brick_array[i].drawBrick();
                     ball.setBrick(brick_array[i]);
                     ball.checkBrick();
+                    brick_array[i].setBall(ball);
                     brick_array[i].breakBrick();
                 }
                 if (brick_array[i].status == 0) {
@@ -61,6 +63,9 @@
                 clearInterval(gameRun);
             }
         },25)
+    }
+    function reset() {
+        window.location.reload();
     }
 </script>
 </body>

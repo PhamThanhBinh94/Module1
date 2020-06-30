@@ -1,4 +1,3 @@
-
 let Brick = function (x,y,width,height,color) {
     let _thisRef = this;
     this.left = x;

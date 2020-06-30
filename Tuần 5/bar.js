@@ -1,4 +1,3 @@
-
 let Bar = function (left,top,width,height,color) {
     this.left = left;
     this.top = top;
