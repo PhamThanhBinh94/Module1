@@ -76,7 +76,7 @@ let Ball = function (x,y,radius,color){
         {
             this.speedY = -this.speedY
         }
-        if ((this.x + this.radius == this.brickLine.left || this.x-this.radius == this.brickLine.left +this.brickLine.width)
+        if ((this.x + this.radius == this.brickLine.left || this.x-this.radius == this.brickLine.left + this.brickLine.width)
             && (this.y >= this.brickLine.top
                 && this.y <= this.brickLine.top + this.brickLine.height)){
             this.speedX = -this.speedX;

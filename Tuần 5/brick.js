@@ -29,7 +29,8 @@ let Brick = function (x,y,width,height,color) {
     }
 
     this.isTouched = function () {
-        if ((((this.ball.x >= _thisRef.getX())
+        if (
+            (((this.ball.x >= _thisRef.getX())
                 && (this.ball.x <= _thisRef.getX() + this.width))
                     && ((this.ball.bottom == this.top)
                      || (this.ball.top == (this.top + this.height))))
@@ -38,6 +39,15 @@ let Brick = function (x,y,width,height,color) {
                 && (this.ball.y <= _thisRef.getY() + this.height))
                   && ((this.ball.right == this.left)
                     || (this.ball.left == (this.left + this.width))))
+            ||
+            (Math.sqrt(Math.pow(this.ball.x-this.left,2)+Math.pow(this.ball.y-this.top,2)) <this.ball.radius)
+            ||
+            (Math.sqrt(Math.pow(this.ball.x-this.left-this.width,2)+Math.pow(this.ball.y-this.top,2)) <this.ball.radius)
+            ||
+            (Math.sqrt(Math.pow(this.ball.x-this.left,2)+Math.pow(this.ball.y-this.top-this.height,2)) <this.ball.radius)
+            ||
+            (Math.sqrt(Math.pow(this.ball.x-this.left-this.width,2)+Math.pow(this.ball.y-this.top-this.height,2)) <this.ball.radius)
+
         )
         {
             return true;
