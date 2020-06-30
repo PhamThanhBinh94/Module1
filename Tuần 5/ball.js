@@ -55,8 +55,19 @@ let Ball = function (x,y,radius,color){
         if ((this.x + this.radius == this.barLine.left || this.x-this.radius == this.barLine.left +this.barLine.width)
             && (this.y >= this.barLine.top
                 && this.y <= this.barLine.top + this.barLine.height)){
-            this.speedX = -this.speedX
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
         }
+
+        if (Math.sqrt(Math.pow(this.x-this.barLine.left,2)+Math.pow(this.y-this.barLine.top,2)) <this.radius) {
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
+        }
+        if (Math.sqrt(Math.pow(this.x-this.barLine.left-this.barLine.width,2)+Math.pow(this.y-this.barLine.top,2)) <this.radius) {
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
+        }
+
     }
     this.checkBrick = function () {
         if((this.y + this.radius == this.brickLine.top || this.y -this.radius == this.brickLine.top +this.brickLine.height)
@@ -64,6 +75,31 @@ let Ball = function (x,y,radius,color){
             && this.x <= this.brickLine.left + this.brickLine.width)
         {
             this.speedY = -this.speedY
+        }
+        if ((this.x + this.radius == this.brickLine.left || this.x-this.radius == this.brickLine.left +this.brickLine.width)
+            && (this.y >= this.brickLine.top
+                && this.y <= this.brickLine.top + this.brickLine.height)){
+            this.speedX = -this.speedX;
+        }
+        if (Math.sqrt(Math.pow(this.x-this.brickLine.left,2)+Math.pow(this.y-this.brickLine.top,2)) <this.radius)
+        {
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
+        }
+        if (Math.sqrt(Math.pow(this.x-this.brickLine.left,2)+Math.pow(this.y-this.brickLine.top-this.brickLine.height,2)) <this.radius)
+        {
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
+        }
+        if (Math.sqrt(Math.pow(this.x-this.brickLine.left-this.brickLine.width,2)+Math.pow(this.y-this.brickLine.top,2)) <this.radius)
+        {
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
+        }
+        if (Math.sqrt(Math.pow(this.x-this.brickLine.left-this.brickLine.width,2)+Math.pow(this.y-this.brickLine.top-this.brickLine.height),2) <this.radius)
+        {
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
         }
     }
     this.checkEndGame = function () {

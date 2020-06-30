@@ -9,7 +9,7 @@
 
 </head>
 <body onload="docReady();">
-<canvas id="myCanvas" width="900px" height="700px" style="border:1px solid #d3d3d3;"></canvas>
+<canvas id="myCanvas" width="900px" height="700px" style="border:1px solid #d3d3d3; " ></canvas>
 <p><input type="button" value="PLAY" onclick="start();"></p>
 <script>
     let canvas = document.getElementById("myCanvas");
@@ -41,7 +41,7 @@
                 alert("GAME OVER");
                 clearInterval(gameRun);
             }
-        },15)
+        },25)
         let gameWin = setInterval(function () {
             let count=0;
             for(let i=0; i<brick_array.length ;i ++){
@@ -60,7 +60,7 @@
                 clearInterval(gameWin);
                 clearInterval(gameRun);
             }
-        },15)
+        },25)
     }
 </script>
 </body>
