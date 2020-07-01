@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 4</title>
+</head>
+<body>
+<canvas id="myCanvas" width="900px" height="700px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    let Circle = function (x,y,radius,color) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.render = function () {
+            ctx.beginPath();
+            ctx.arc(this.x,this.y, this.radius, 0,2*Math.PI);
+            ctx.fillStyle = "#000000";
+            ctx.fill();
+        }
+    }
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+    let cirle = new Circle (10,10,100)
+    cirle.render();
+</script>
+</body>
+</html>

@@ -1,68 +1,42 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Demo</title>-->
-<!--&lt;!&ndash;    <script src="Tuần 5/display.js"></script>&ndash;&gt;-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+<!--    <script src="Tuần 5/display.js"></script>-->
 <!--    <script src="Tuần 5/ball.js"></script>-->
 <!--    <script src="Tuần 5/bar.js"></script>-->
 <!--    <script src="Tuần 5/brick.js"></script>-->
 
-<!--</head>-->
-<!--<body onload="docReady();">-->
+</head>
+<body onload="docReady();">
 <!--<canvas id="myCanvas" width="900px" height="700px" style="border:1px solid #d3d3d3;"></canvas>-->
 <!--<p><input type="button" value="PLAY" onclick="start();"></p>-->
-<!--<script>-->
-<!--    let canvas = document.getElementById("myCanvas");-->
-<!--    let ctx = canvas.getContext("2d");-->
-<!--    let bar = new Bar (350,650,200,25,"blue");-->
-<!--    let ball = new Ball(450,600,10,"green");-->
-<!--    let brick_array =[];-->
-<!--    ball.setBar(bar);-->
-<!--    bar.drawBar();-->
-<!--    ball.drawBall();-->
-<!--    function creatBrick(x,y) {-->
-<!--        brick_array[brick_array.length] = new Brick(x,y,100,25,"orange");-->
-<!--        brick_array[brick_array.length-1].drawBrick();-->
-<!--        brick_array[brick_array.length-1].setBall(ball);-->
-<!--    }-->
-<!--    for (let i=0; i<5; i++) {-->
-<!--        for (let j = 0; j < 3; j++) {-->
-<!--            creatBrick(i*150 + 100, j*75 + 100)-->
-<!--        }-->
-<!--    }-->
-<!--    function start() {-->
-
-<!--        let gameRun = setInterval(function () {-->
-<!--            ball.moveBall();-->
-<!--            bar.drawBar();-->
-<!--            ball.checkLimit();-->
-<!--            ball.checkBar();-->
-<!--            if (ball.checkEndGame()) {-->
-<!--                alert("GAME OVER");-->
-<!--                clearInterval(gameRun);-->
-<!--            }-->
-<!--        },15)-->
-<!--        let gameWin = setInterval(function () {-->
-<!--            let count=0;-->
-<!--            for(let i=0; i<brick_array.length ;i ++){-->
-<!--                if (brick_array[i].status !== 0) {-->
-<!--                    brick_array[i].drawBrick();-->
-<!--                    ball.setBrick(brick_array[i]);-->
-<!--                    ball.checkBrick();-->
-<!--                    brick_array[i].breakBrick();-->
-<!--                }-->
-<!--                if (brick_array[i].status == 0) {-->
-<!--                    count++;-->
-<!--                }-->
-<!--            }-->
-<!--            if (count == brick_array.length) {-->
-<!--                alert('WIN');-->
-<!--                clearInterval(gameWin);-->
-<!--                clearInterval(gameRun);-->
-<!--            }-->
-<!--        },15)-->
-<!--    }-->
-<!--</script>-->
-<!--</body>-->
-<!--</html>-->
+<script>
+    function function1(n)
+    {
+        var flag = true;
+        if (n < 2){
+            flag = false;
+        }
+        else if (n == 2){
+            flag = true;
+        }
+        else if (n % 2 == 0){
+            flag = false;
+        }
+        else{
+            for (var i = 3; i < n-1; i+=2)
+            {
+                if (n % i == 0){
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        return flag;
+    }
+    document.write(function1(13))
+</script>
+</body>
+</html>

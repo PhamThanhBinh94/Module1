@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3</title>
+</head>
+<body>
+<script>
+    function isFibonacci(num) {
+        let isFibo = false;
+        let a = 0;
+        let b = 1;
+        let c = a +b;
+        while (c < num){
+            c = a +b;
+            a = b;
+            b = c;
+        }
+        if (c ===num) {
+            isFibo = true;
+        }
+        return isFibo;
+    }
+    let number = +prompt("Nhập số vào đây");
+    document.write("Kết quả số vừa nhập là:" +isFibonacci(number))
+</script>
+</body>
+</html>
