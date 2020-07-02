@@ -11,7 +11,7 @@
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.render = function () {
+        this.render = function (canvas) {
             ctx.beginPath();
             ctx.arc(this.x,this.y, this.radius, 0,2*Math.PI);
             ctx.fillStyle = "#000000";
