@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập - Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+<script>
+    let Temperature = function (celcius) {
+        this.celcius = celcius;
+        this.getCelcius = function () {
+            return this.celcius
+        }
+        this.setCelcius = function (celcius) {
+            this.celcius = celcius
+        }
+        this.changeCToF = function () {
+            return (this.getCelcius()*1.8 +32)
+        }
+        this.changeCToK = function () {
+            return(this.getCelcius() +273.15)
+        }
+    }
+    let temperature = new  Temperature(50);
+    temperature.setCelcius(25)
+    document.write("ĐỔi từ C sang độ F là: " +temperature.changeCToF() +"<br>");
+    document.write("ĐỔi từ C sang độ Kenvin là: " +temperature.changeCToK()+"<br>");
+
+</script>
+</body>
+</html>
