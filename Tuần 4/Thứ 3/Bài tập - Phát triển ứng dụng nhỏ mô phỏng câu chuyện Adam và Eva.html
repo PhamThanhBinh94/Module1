@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập - Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
+</head>
+<body>
+<script>
+let Apple = function () {
+    this.weight = 10;
+    this.decrease = function () {
+        if (this.weight>0) {
+            this.weight--;
+        }
+    }
+    this.isEmpty = function () {
+        if (this.weight>0) {
+            return true;
+        }
+        return false;
+    }
+    this.getWeight = function () {
+        return this.weight;
+    }
+}
+let Human = function (name,gender, weight) {
+    this.name = name;
+    this.gender = gender;
+    this.weight = weight;
+    this.isMale = function () {
+        if (this.gender == "Male") {
+            return true;
+        }
+        return false;
+    }
+    this.setGender = function (gender) {
+        this.gender = gender;
+    }
+    this.checkApple = function (apple) {
+        return apple.isEmpty();
+    }
+    this.eat =  function (apple) {
+        document.write(this.name + " eat Apple <br>")
+        apple.decrease();
+    }
+    this.say = function (string) {
+        document.write(string +'<br>')
+    }
+    this.getName = function () {
+        return this.name;
+    }
+    this.setName = function (name) {
+        this.name = name;
+    }
+    this.getWeight = function () {
+        return this.weight;
+    }
+    this.setWeight = function (weight) {
+        this.weight = weight
+    }
+}
+let apple = new Apple();
+let Adam = new Human("Adam", "male", 80);
+let Eva = new Human("Eva", "female", 55);
+    Adam.say("Hello Eva" );
+    Eva.say("Hello Adam. I have an apple. We eat an apple together." );
+    document.write("The weight apple is: " + apple.getWeight() +"<br>");
+    while (apple.getWeight() > 0)  {
+    Adam.eat(apple);
+    document.write("The weight apple is: " + apple.getWeight() +"<br>");
+    Eva.eat(apple)
+    document.write("The weight apple is: " + apple.getWeight() +"<br>");
+
+    }
+</script>
+</body>
+</html>
